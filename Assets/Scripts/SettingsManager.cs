@@ -1,37 +1,45 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio; // Required for volume control
+using TMPro;
 
 public class SettingsManager : MonoBehaviour
 {
+    [Header("Panel Control")]
     public GameObject settingsPanel;
 
-    // Call this from your "Settings" button on the main menu
-    public void OpenSettings()
+    [Header("UI Elements")]
+    public Slider volumeSlider;
+    public TMP_Dropdown qualityDropdown;
+    public Toggle fullscreenToggle;
+
+    void Start()
     {
-        settingsPanel.SetActive(true);
+        // 1. Ensure the panel starts hidden
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+
+        // 2. Load current values into the UI
+        volumeSlider.value = AudioListener.volume;
+        qualityDropdown.value = QualitySettings.GetQualityLevel();
+        fullscreenToggle.isOn = Screen.fullScreen;
     }
 
-    // Call this from your "Back" button
-    public void CloseSettings()
+    // --- Panel Logic ---
+    public void OpenSettings() => settingsPanel.SetActive(true);
+    public void CloseSettings() => settingsPanel.SetActive(false);
+
+    // --- Settings Logic ---
+    public void ChangeVolume(float value)
     {
-        settingsPanel.SetActive(false);
+        AudioListener.volume = value;
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void ChangeQuality(int index)
     {
-        Screen.fullScreen = isFullscreen;
-        Debug.Log("Fullscreen: " + isFullscreen);
+        QualitySettings.SetQualityLevel(index);
     }
 
-    public void SetQuality(int qualityIndex)
+    public void ChangeFullscreen(bool isFull)
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-
-    public void SetVolume(float volume)
-    {
-        // This is a simple version. For real audio, use an AudioMixer.
-        AudioListener.volume = volume;
+        Screen.fullScreen = isFull;
     }
 }

@@ -3,69 +3,116 @@ using UnityEngine;
 public class CameraSwitcher : MonoBehaviour
 {
     [Header("Camera References")]
+    public GameObject crosshair;
     public GameObject playerCamera;
+    public GameObject roomCamera;
     public GameObject pcCamera1;
     public GameObject pcCamera2;
+    public GameObject settingsPanel;
+
+    [Header("UI References")]
+    public GameObject roomViewUI; // Drag your new Room Canvas/Panel here
+    public GameObject playerHUD;  // Drag your crosshair/game UI here
 
     [Header("Player Settings")]
     public MonoBehaviour playerMovementScript;
 
+    void Start()
+    {
+        // Always start as the player
+        ReturnToPlayer();
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+
+        }
+        if (roomViewUI != null)
+        {
+            roomViewUI.SetActive(false);
+        }
+    }
+
     void Update()
     {
-        // RETURN TO PLAYER (V)
-        if (Input.GetKeyDown(KeyCode.V))
+        // V - RETURN TO PLAYER
+        if (Input.GetKeyDown(KeyCode.V)) ReturnToPlayer();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ReturnToPlayer();
+            if (settingsPanel != null && settingsPanel.activeSelf)
+            {
+                settingsPanel.SetActive(false);
+            }
+            else if (roomCamera.activeSelf)
+            {
+                ReturnToPlayer();
+            }
+            else
+            {
+                EnterCameraMode(roomCamera, true);
+            }
         }
 
-        // VIEW PC CAMERA 1 (K)
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            EnterCameraMode(pcCamera1);
-        }
+        // L - PC VIEW 1 (No UI/No Mouse - Camera only)
+        if (Input.GetKeyDown(KeyCode.L)) EnterCameraMode(pcCamera1, false);
 
-        // VIEW PC CAMERA 2 (L)
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            EnterCameraMode(pcCamera2);
-        }
+        // J - PC VIEW 2 (No UI/No Mouse - Camera only)
+        if (Input.GetKeyDown(KeyCode.J)) EnterCameraMode(pcCamera2, false);
     }
 
-    void EnterCameraMode(GameObject targetCam)
+    void EnterCameraMode(GameObject targetCam, bool isRoomView)
     {
-        // Safety check: make sure the camera actually exists in the slot
-        if (targetCam == null)
-        {
-            Debug.LogError("Camera slot is empty! Drag a camera into the GameManager inspector.");
-            return;
-        }
+        if (targetCam == null) return;
 
-        // 1. Turn off all cameras
+        // 1. Disable all cameras
         playerCamera.SetActive(false);
+        roomCamera.SetActive(false);
         pcCamera1.SetActive(false);
         pcCamera2.SetActive(false);
 
-        // 2. Turn on the chosen camera
+        // 2. Enable the target
         targetCam.SetActive(true);
 
-        // 3. Stop player movement so you don't walk away
-        if (playerMovementScript != null)
-            playerMovementScript.enabled = false;
+        // 3. Stop movement
+        if (playerMovementScript != null) playerMovementScript.enabled = false;
 
-        Debug.Log("Switched to: " + targetCam.name);
+        // 4. Handle UI and Mouse ONLY if it's the Room View (K)
+        if (isRoomView)
+        {
+            roomViewUI.SetActive(true);
+            if (playerHUD != null) playerHUD.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            // For PC views (L/J), keep UI off and mouse locked
+            roomViewUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if (crosshair != null) crosshair.SetActive(false);
     }
 
-    void ReturnToPlayer()
+    public void ReturnToPlayer()
     {
-        // 1. Reset cameras
+        // Turn off all extra cameras and UI
+        roomCamera.SetActive(false);
         pcCamera1.SetActive(false);
         pcCamera2.SetActive(false);
+        roomViewUI.SetActive(false);
+
+        // Turn on Player stuff
         playerCamera.SetActive(true);
+        if (playerHUD != null) playerHUD.SetActive(true);
 
-        // 2. Re-enable movement
-        if (playerMovementScript != null)
-            playerMovementScript.enabled = true;
+        // Enable movement and lock mouse
+        if (playerMovementScript != null) playerMovementScript.enabled = true;
 
-        Debug.Log("Returned to Player view.");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        if (crosshair != null) crosshair.SetActive(true);
     }
 }
