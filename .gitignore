@@ -128,30 +128,10 @@ __pycache__/
 *.tmp
 *.log
 
-# Unity export / FBX / OBJ intermediate files
-*.fbx
-*.obj
-*.dae
-*.3ds
-*.stl
-*.ply
-
-# Textures (if you want to keep them outside Git)
-*.jpg
-*.jpeg
-*.png
-*.tga
-*.bmp
-*.gif
-*.hdr
-*.exr
-*.psd
-*.tiff
-
 # Material libraries
 *.mtl
 
-# Generated assets (optional)
+# Generated assets
 Library/
 Temp/
 Obj/
