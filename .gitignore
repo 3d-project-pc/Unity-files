@@ -114,16 +114,6 @@ __pycache__/
 *.blend@ 
 *.blendfile~
 
-# Blender render output
-*.exr
-*.png
-*.jpg
-*.tga
-*.avi
-*.mov
-*.mp4
-*.mpeg
-
 # Blender temp files
 *.tmp
 *.log
