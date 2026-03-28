@@ -17,38 +17,29 @@ public class SettingsManager : MonoBehaviour
         // 1. Ensure the panel starts hidden
         if (settingsPanel != null) settingsPanel.SetActive(false);
 
-        // Initialize UI to match current game state
-        if (fullscreenToggle != null)
-            fullscreenToggle.isOn = Screen.fullScreen;
-
-        if (qualityDropdown != null)
-            qualityDropdown.value = QualitySettings.GetQualityLevel();
-
-        // Default volume usually 1.0 (100%)
-        if (volumeSlider != null)
-            volumeSlider.value = AudioListener.volume;
+        // 2. Load current values into the UI
+        volumeSlider.value = AudioListener.volume;
+        qualityDropdown.value = QualitySettings.GetQualityLevel();
+        fullscreenToggle.isOn = Screen.fullScreen;
     }
 
     // --- Panel Logic ---
     public void OpenSettings() => settingsPanel.SetActive(true);
     public void CloseSettings() => settingsPanel.SetActive(false);
 
-    // 1. QUALITY SETTINGS
-    public void SetQuality(int qualityIndex)
+    // --- Settings Logic ---
+    public void ChangeVolume(float value)
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
-        Debug.Log("Quality set to: " + QualitySettings.names[qualityIndex]);
+        AudioListener.volume = value;
     }
 
-    // 2. VOLUME SETTINGS
-    public void SetVolume(float volume)
+    public void ChangeQuality(int index)
     {
-        AudioListener.volume = volume;
+        QualitySettings.SetQualityLevel(index);
     }
 
-    // 3. FULLSCREEN SETTINGS
-    public void SetFullscreen(bool isFullscreen)
+    public void ChangeFullscreen(bool isFull)
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.fullScreen = isFull;
     }
 }
