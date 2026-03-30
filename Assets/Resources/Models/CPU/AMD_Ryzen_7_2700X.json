@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 7 2700X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 7 2700X features high-speed processing with 8 cores for heavy multitasking.",
+  "frequency": "3.7 / 4.3 GHz",
+  "wattage": "105W",
+  "additionalSpecs": "Socket AM4 | 8 Cores, 16 Threads | 16MB L3 Cache",
+  "price": 401.9
+}

@@ -1,0 +1,9 @@
+{
+  "optionName": "Nvidia GeForce RTX 3080 Founders Edition",
+  "modelPrefab": "geforce-rtx-3080-founders-edition",
+  "detailedDescription": "A generational leap for high-end 4K gaming.\n10GB of fast GDDR6X memory and a redesigned flow-through Founders Edition cooler.",
+  "frequency": "1440 MHz base / 1710 MHz boost",
+  "wattage": "320W TDP",
+  "additionalSpecs": "GPU: GA102 | Architecture: Ampere\nCUDA Cores: 8704 | RT Cores: 68 | Tensor Cores: 272\nVRAM: 10GB GDDR6X (320-bit bus)\nMemory Bandwidth: 760 GB/s\nDisplay Outputs: 3x DisplayPort 1.4a, 1x HDMI 2.1\nPCIe: x16 (PCIe 4.0)\nRecommended PSU: 750W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
+  "price": 202.26
+}

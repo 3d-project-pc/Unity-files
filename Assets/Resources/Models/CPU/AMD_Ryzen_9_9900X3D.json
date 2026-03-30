@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 9 9900X3D",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 9 9900X3D features high-speed processing with 12 cores for heavy multitasking.",
+  "frequency": "4.0 / 5.6 GHz",
+  "wattage": "120W",
+  "additionalSpecs": "Socket AM5 | 12 Cores, 24 Threads | 128MB L3 Cache",
+  "price": 139.71
+}

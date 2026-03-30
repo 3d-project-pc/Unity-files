@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 7 1800X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 7 1800X features high-speed processing with 8 cores for heavy multitasking.",
+  "frequency": "3.6 / 4.0 GHz",
+  "wattage": "95W",
+  "additionalSpecs": "Socket AM4 | 8 Cores, 16 Threads | 16MB L3 Cache",
+  "price": 271.51
+}

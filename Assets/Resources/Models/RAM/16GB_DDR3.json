@@ -1,0 +1,9 @@
+{
+  "optionName": "16GB DDR3",
+  "modelPrefab": "DDR3",
+  "detailedDescription": "16GB of DDR3 in a dual-channel kit.\nIdeal for keeping older systems relevant for everyday multitasking.",
+  "frequency": "1333 - 1866 MHz",
+  "wattage": "1.5V",
+  "additionalSpecs": "Capacity: 16GB\nGeneration: DDR3\nBandwidth: Up to 14.9 GB/s per channel\nVoltage: 1.5V (1.35V for DDR3L)\nSlots: 2 x 8GB (dual-channel)\nECC Support: No (standard) / Yes (server variants)\nCompatible Sockets: LGA1155, LGA1150, AM3, AM3+",
+  "price": 172.45
+}

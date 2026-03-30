@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 9 3900X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 9 3900X features high-speed processing with 12 cores for heavy multitasking.",
+  "frequency": "3.8 / 4.6 GHz",
+  "wattage": "105W",
+  "additionalSpecs": "Socket AM4 | 12 Cores, 24 Threads | 64MB L3 Cache",
+  "price": 139.79
+}

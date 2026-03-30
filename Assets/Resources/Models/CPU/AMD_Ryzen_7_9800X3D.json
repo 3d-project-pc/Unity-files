@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 7 9800X3D",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 7 9800X3D features high-speed processing with 8 cores for heavy multitasking.",
+  "frequency": "4.7 / 5.2 GHz",
+  "wattage": "120W",
+  "additionalSpecs": "Socket AM5 | 8 Cores, 16 Threads | 96MB L3 Cache",
+  "price": 173.57
+}

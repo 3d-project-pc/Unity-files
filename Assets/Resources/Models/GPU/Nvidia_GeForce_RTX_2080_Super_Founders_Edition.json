@@ -1,0 +1,9 @@
+{
+  "optionName": "Nvidia GeForce RTX 2080 Super Founders Edition",
+  "modelPrefab": "geforce-rtx-2080-super-founders-edition",
+  "detailedDescription": "A refined 2080 with higher clocks and more memory bandwidth.\nPushes solidly into 4K territory with excellent ray tracing performance.",
+  "frequency": "1650 MHz base / 1815 MHz boost",
+  "wattage": "250W TDP",
+  "additionalSpecs": "GPU: TU104 | Architecture: Turing\nCUDA Cores: 3072 | RT Cores: 48 | Tensor Cores: 384\nVRAM: 8GB GDDR6 (256-bit bus)\nMemory Bandwidth: 496 GB/s\nDisplay Outputs: 3x DisplayPort 1.4, 1x HDMI 2.0, 1x USB-C (VirtualLink)\nPCIe: x16 (PCIe 3.0)\nRecommended PSU: 650W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
+  "price": 313.85
+}

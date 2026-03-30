@@ -1,0 +1,9 @@
+{
+  "optionName": "Nvidia GeForce RTX 2080 Founders Edition",
+  "modelPrefab": "geforce-rtx-2080-founders-edition",
+  "detailedDescription": "High-end Turing GPU for demanding 1440p and entry 4K gaming.\nFeatures a dual-fan Founders Edition cooler with a premium build quality.",
+  "frequency": "1515 MHz base / 1710 MHz boost",
+  "wattage": "215W TDP",
+  "additionalSpecs": "GPU: TU104 | Architecture: Turing\nCUDA Cores: 2944 | RT Cores: 46 | Tensor Cores: 368\nVRAM: 8GB GDDR6 (256-bit bus)\nMemory Bandwidth: 448 GB/s\nDisplay Outputs: 3x DisplayPort 1.4, 1x HDMI 2.0, 1x USB-C (VirtualLink)\nPCIe: x16 (PCIe 3.0)\nRecommended PSU: 650W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
+  "price": 240.81
+}

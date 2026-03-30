@@ -1,0 +1,9 @@
+{
+  "optionName": "Nvidia GeForce RTX 2060 Super Founders Edition",
+  "modelPrefab": "geforce-rtx-2060-super-founders-edition",
+  "detailedDescription": "An upgraded 2060 with more cores and 8GB VRAM.\nBridges the gap between the 2060 and 2070 at a competitive price.",
+  "frequency": "1470 MHz base / 1650 MHz boost",
+  "wattage": "175W TDP",
+  "additionalSpecs": "GPU: TU106 | Architecture: Turing\nCUDA Cores: 2176 | RT Cores: 34 | Tensor Cores: 272\nVRAM: 8GB GDDR6 (256-bit bus)\nMemory Bandwidth: 448 GB/s\nDisplay Outputs: 3x DisplayPort 1.4, 1x HDMI 2.0, 1x USB-C (VirtualLink)\nPCIe: x16 (PCIe 3.0)\nRecommended PSU: 550W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
+  "price": 206.73
+}

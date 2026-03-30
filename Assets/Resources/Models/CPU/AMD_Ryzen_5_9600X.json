@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 5 9600X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 5 9600X features high-speed processing with 6 cores for heavy multitasking.",
+  "frequency": "3.9 / 5.4 GHz",
+  "wattage": "65W",
+  "additionalSpecs": "Socket AM5 | 6 Cores, 12 Threads | 32MB L3 Cache",
+  "price": 335.08
+}

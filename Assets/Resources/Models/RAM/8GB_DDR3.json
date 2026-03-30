@@ -1,0 +1,9 @@
+{
+  "optionName": "8GB DDR3",
+  "modelPrefab": "DDR3",
+  "detailedDescription": "8GB of DDR3 memory.\nA single stick for older platforms — sufficient for basic tasks and light gaming.",
+  "frequency": "1333 - 1866 MHz",
+  "wattage": "1.5V",
+  "additionalSpecs": "Capacity: 8GB\nGeneration: DDR3\nBandwidth: Up to 14.9 GB/s\nVoltage: 1.5V (1.35V for DDR3L)\nSlots: 1 x 8GB\nECC Support: No (standard) / Yes (server variants)\nCompatible Sockets: LGA1155, LGA1150, AM3, AM3+",
+  "price": 130.29
+}

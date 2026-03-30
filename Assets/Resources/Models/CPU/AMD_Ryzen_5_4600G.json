@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 5 4600G",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 5 4600G features high-speed processing with 6 cores for heavy multitasking.",
+  "frequency": "3.6 / 4.2 GHz",
+  "wattage": "65W",
+  "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
+  "price": 199.78
+}

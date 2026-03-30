@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 9 7900X3D",
+  "modelPrefab": "RyzenCPUStar",
+  "detailedDescription": "12 Zen 4 cores with 3D V-Cache stacking.\nA strong pick for gaming and simulation workloads that benefit from large cache.",
+  "frequency": "4.4 GHz base / 5.6 GHz boost",
+  "wattage": "120W TDP (162W PPT)",
+  "additionalSpecs": "Cores: 12 | Threads: 24\nL2 Cache: 12MB | L3 Cache: 140MB (64MB + 64MB + 12MB 3D V-Cache across 2 CCDs)\nSocket: AM5 (LGA1718) | Architecture: Zen 4\nProcess Node: TSMC 5nm (CCD) + 6nm (IOD)\nMemory: DDR5-5200 dual-channel\nPCIe: 28 lanes (PCIe 5.0 x16 + PCIe 5.0 x4 NVMe)\nIntegrated Graphics: AMD Radeon RDNA 2 (2 CUs)\nMax Temp: 89°C | Unlocked Multiplier: Yes",
+  "price": 198.64
+}

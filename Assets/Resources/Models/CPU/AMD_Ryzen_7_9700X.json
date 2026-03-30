@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 7 9700X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 7 9700X features high-speed processing with 8 cores for heavy multitasking.",
+  "frequency": "3.8 / 5.5 GHz",
+  "wattage": "65W",
+  "additionalSpecs": "Socket AM5 | 8 Cores, 16 Threads | 32MB L3 Cache",
+  "price": 191.21
+}

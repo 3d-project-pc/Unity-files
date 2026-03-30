@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 7 5800X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 7 5800X features high-speed processing with 8 cores for heavy multitasking.",
+  "frequency": "3.8 / 4.7 GHz",
+  "wattage": "105W",
+  "additionalSpecs": "Socket AM4 | 8 Cores, 16 Threads | 32MB L3 Cache",
+  "price": 136.58
+}

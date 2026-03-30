@@ -1,0 +1,9 @@
+{
+  "optionName": "AMD Ryzen 9 5950X",
+  "modelPrefab": "RyzenCPU",
+  "detailedDescription": "The AMD Ryzen 9 5950X features high-speed processing with 16 cores for heavy multitasking.",
+  "frequency": "3.4 / 4.9 GHz",
+  "wattage": "105W",
+  "additionalSpecs": "Socket AM4 | 16 Cores, 32 Threads | 64MB L3 Cache",
+  "price": 268.62
+}
