@@ -1303,7 +1303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &182165560
 Transform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6885,7 @@ Transform:
   m_GameObject: {fileID: 860497336}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.97945184, z: -0, w: -0.20167829}
-  m_LocalPosition: {x: 43.25, y: 10, z: 18.65}
+  m_LocalPosition: {x: 43.25, y: 8.61, z: 18.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6971,14 +6971,9 @@ MonoBehaviour:
   controller: {fileID: 860497338}
   speed: 8
   gravity: -19.62
-  playerAnimator: {fileID: 0}
-  playerCamera: {fileID: 591032988}
-  grabPoint: {fileID: 0}
-  grabDistance: 2.5
-  standHeight: 2
-  crouchHeight: 1
-  crouchSpeed: 4
-  crouchTransitionSpeed: 8
+  groundedGravity: -2
+  horizontalInput: Horizontal
+  verticalInput: Vertical
 --- !u!4 &860572860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 08897b318955a42408d2f5560b4c7997, type: 3}
@@ -9171,14 +9166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSwitcher
   crosshair: {fileID: 1056593608}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 591032984}
   roomCamera: {fileID: 1233347823}
   pcCamera1: {fileID: 1892791043}
   pcCamera2: {fileID: 1636055663}
   settingsPanel: {fileID: 367204264}
   roomViewUI: {fileID: 2027313028}
   playerHUD: {fileID: 1056593608}
-  playerMovementScript: {fileID: 0}
+  playerMovementScript: {fileID: 860497341}
 --- !u!4 &1195277424
 Transform:
   m_ObjectHideFlags: 0
@@ -12006,9 +12001,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6175735322010250531, guid: ad09a79eadd812e44aef0be7692a841b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1448156768}
-    - targetCorrespondingSourceObject: {fileID: -6175735322010250531, guid: ad09a79eadd812e44aef0be7692a841b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1448156772}
     - targetCorrespondingSourceObject: {fileID: -8848260863692975120, guid: ad09a79eadd812e44aef0be7692a841b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 280307551}
@@ -12065,33 +12057,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38942963, y: 0.477515, z: 0.0049195876}
   m_Center: {x: 0.07401829, y: -0.0010658426, z: 0.002674187}
---- !u!54 &1448156772
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448156767}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1475014055
 GameObject:
   m_ObjectHideFlags: 0

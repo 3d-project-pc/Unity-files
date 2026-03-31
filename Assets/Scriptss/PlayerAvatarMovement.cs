@@ -3,118 +3,61 @@
 public class PlayerAvatarMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public CharacterController controller;
-    public float speed = 8f;
-    public float gravity = -19.62f;
-
-    [Header("Animation")]
-    public Animator playerAnimator;
-
-    [Header("Grab Settings")]
-    public Camera playerCamera;
-    public Transform grabPoint;
-    public float grabDistance = 2.5f;
-
-    [Header("Crouch Settings")]
-    public float standHeight = 2f;
-    public float crouchHeight = 1f;
-    public float crouchSpeed = 4f;
-    public float crouchTransitionSpeed = 8f;
-    private bool isCrouching = false;
-
-    [Header("Physics")]
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private float speed = 8f;
+    [SerializeField] private float gravity = -19.62f;
+    [SerializeField] private float groundedGravity = -2f;
+    
+    [Header("Input")]
+    [SerializeField] private string horizontalInput = "Horizontal";
+    [SerializeField] private string verticalInput = "Vertical";
+    
+    // Physics state
     private Vector3 velocity;
-    private GameObject heldObject;
-
-    void Update()
+    
+    private void Awake()
+    {
+        // Auto-find CharacterController if not assigned
+        if (controller == null)
+            controller = GetComponent<CharacterController>();
+    }
+    
+    private void Update()
     {
         HandleMovement();
-        HandleCrouch();
-        HandleGrab();
+        HandleGravity();
     }
-
-    void HandleMovement()
+    
+    private void HandleMovement()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        if (move.magnitude > 1) move.Normalize();
-
-        float currentSpeed = isCrouching ? crouchSpeed : speed;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        if (playerAnimator != null)
-        {
-            bool isWalking = move.magnitude > 0.1f;
-            playerAnimator.SetBool("isWalking", isWalking);
-        }
-
+        // Get input
+        float moveX = Input.GetAxis(horizontalInput);
+        float moveZ = Input.GetAxis(verticalInput);
+        
+        // Calculate movement direction relative to player's orientation
+        Vector3 moveDirection = transform.right * moveX + transform.forward * moveZ;
+        
+        // Normalize diagonal movement to maintain consistent speed
+        if (moveDirection.magnitude > 1f)
+            moveDirection.Normalize();
+        
+        // Apply movement
+        Vector3 movement = moveDirection * (speed * Time.deltaTime);
+        controller.Move(movement);
+    }
+    
+    private void HandleGravity()
+    {
+        // Reset velocity when grounded to prevent constant downward acceleration
         if (controller.isGrounded && velocity.y < 0)
-            velocity.y = -2f;
-
+        {
+            velocity.y = groundedGravity;
+        }
+        
+        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
+        
+        // Apply vertical movement
         controller.Move(velocity * Time.deltaTime);
-    }
-
-    void HandleCrouch()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            isCrouching = !isCrouching;
-
-            if (playerAnimator != null)
-                playerAnimator.SetBool("isCrouching", isCrouching);
-        }
-
-        float targetHeight = isCrouching ? crouchHeight : standHeight;
-        controller.height = Mathf.Lerp(controller.height, targetHeight,
-                            crouchTransitionSpeed * Time.deltaTime);
-    }
-
-    void HandleGrab()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (heldObject == null)
-                TryGrab();
-            else
-                Drop();
-        }
-    }
-
-    void TryGrab()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(
-            playerCamera.transform.position,
-            playerCamera.transform.forward,
-            out hit, grabDistance))
-        {
-            if (hit.collider.CompareTag("Grabbable"))
-            {
-                heldObject = hit.collider.gameObject;
-                heldObject.GetComponent<Rigidbody>().isKinematic = true;
-                heldObject.transform.SetParent(grabPoint);
-                heldObject.transform.localPosition = Vector3.zero;
-
-                if (playerAnimator != null)
-                    playerAnimator.SetBool("isGrabbing", true);
-            }
-        }
-    }
-
-    void Drop()
-    {
-        if (heldObject != null)
-        {
-            heldObject.transform.SetParent(null);
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = false;
-            heldObject = null;
-
-            if (playerAnimator != null)
-                playerAnimator.SetBool("isGrabbing", false);
-        }
     }
 }
