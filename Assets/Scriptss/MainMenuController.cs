@@ -1,19 +1,29 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    [SerializeField] private AudioSource buttonSfx;
     public void StartGame()
     {
-        // Loads the next scene in the list
         SceneManager.LoadScene("AvatarSelection");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    IEnumerator PlaySoundAndLoad()
+    {
+        if (buttonSfx != null)
+        {
+            buttonSfx.PlayOneShot(buttonSfx.clip);
+        }
 
+        yield return new WaitForSeconds(0.4f);
+
+        SceneManager.LoadScene("AvatarSelection");
+    }
     public void OpenSettings()
     {
-        // We will build this panel later!
         Debug.Log("Settings Opened");
     }
 
