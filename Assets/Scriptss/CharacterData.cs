@@ -1,5 +1,8 @@
+// Create this script and place it in your project
 public static class CharacterData
 {
-    // 0 = Male, 1 = Female
-    public static int SelectedAvatarIndex = 0;
+    public static int SelectedAvatarIndex { get; set; }
+    
+    // Default value (0 = Male, 1 = Female)
+    // You can add more data if needed
 }
