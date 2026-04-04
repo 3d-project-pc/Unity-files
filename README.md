@@ -17,6 +17,7 @@ The goal is to allow users to explore and assemble computer components inside a 
 The project follows a standard Unity organization, with core game logic and assets located in the Assets/ directory:
 
 * Core Folders
+  
 Scripts/: Contains C# source code, including player interaction and simulation logic.
 
 Prefabs/: Reusable GameObjects (e.g., PC components, Settings Panel). The main UI is managed via the Canvas prefab.
@@ -28,6 +29,7 @@ Room/: Specific 3D models, textures, and environment assets for the building wor
 Components/: Specialized assets for the hardware simulation.
 
 * Assets & Resources
+  
 Resources/: Assets that are dynamically loaded via script at runtime.
 
 Images/ & Sounds/: All 2D textures, UI sprites, and audio clips.
@@ -35,6 +37,7 @@ Images/ & Sounds/: All 2D textures, UI sprites, and audio clips.
 Fonts/ & TextMesh Pro/: Typography and UI styling assets.
 
 * Settings & Configuration
+  
 Settings/: Configuration files for the project.
 
 InputSystem_Actions: Defines the control mapping for keyboard and mouse interactions.
