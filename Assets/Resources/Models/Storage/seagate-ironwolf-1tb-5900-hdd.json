@@ -1,0 +1,10 @@
+{
+  "optionName": "Seagate IronWolf 1TB 5900RPM HDD",
+  "modelPrefab": "HDD",
+  "detailedDescription": "The Seagate IronWolf 1TB 5900RPM HDD provides reliable bulk storage with 190MB/s transfer speeds. Featuring 256MB cache and advanced formatting technology, this drive is ideal for desktop PCs, NAS systems, and backup solutions.",
+  "frequency": "190MB/s",
+  "wattage": "6.8W (Active) / 3.5W (Idle)",
+  "additionalSpecs": "1TB Capacity | 5900RPM | 256MB Cache | SATA 6Gb/s Interface | 190MB/s Transfer Speed | 2M Hours MTBF | Acoustic Magic Technology",
+  "price": 61.99,
+  "modelPrefabForScaling": "HDD"
+}

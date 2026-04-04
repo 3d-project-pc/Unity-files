@@ -1,0 +1,10 @@
+{
+  "optionName": "Crucial BX500 1TB SATA SSD",
+  "modelPrefab": "SSD",
+  "detailedDescription": "The Crucial BX500 1TB SATA SSD delivers reliable performance with read speeds up to 560MB/s and write speeds up to 530MB/s. Perfect for upgrading laptops and desktops, this 2.5\" drive features the SATA III interface and includes advanced wear-leveling technology for enhanced durability.",
+  "frequency": "560/530 MB/s",
+  "wattage": "2.5W (Active) / 0.5W (Idle)",
+  "additionalSpecs": "1TB Capacity | SATA III | 2.5\" Form Factor | Up to 560MB/s Read | Up to 530MB/s Write | SLC Caching | 1.5M Hours MTBF",
+  "price": 105.99,
+  "modelPrefabForScaling": "SSD"
+}

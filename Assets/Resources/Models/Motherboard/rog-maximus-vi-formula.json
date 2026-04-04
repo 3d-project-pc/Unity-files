@@ -1,0 +1,10 @@
+{
+  "optionName": "ROG Maximus VI Formula",
+  "modelPrefab": "MAXIMUS VI Formula",
+  "detailedDescription": "The ROG Maximus VI Formula motherboard features the Intel Z87 chipset with LGA 1150 socket support. This ATX form factor board supports up to 32GB of DDR3 RAM across 4 slots. Equipped with PCIe 3.0 expansion slots, 0 M.2 slots, and 8 SATA ports for extensive storage options. Connectivity includes USB 3.0 ports and is ideal for enthusiasts and gamers seeking high-performance features.",
+  "frequency": "2400 MHz (Base) / 4800 MHz (OC)",
+  "wattage": "40-55W",
+  "additionalSpecs": "LGA 1150 | Intel Z87 Chipset | ATX | 4x DDR3 Slots (Max 32GB) | 0x M.2 Slots | 8x SATA Ports | USB 3.0",
+  "price": 246,
+  "modelPrefabForScaling": "MAXIMUS VI Formula"
+}

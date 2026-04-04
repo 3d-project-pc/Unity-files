@@ -10,6 +10,13 @@ public class DescriptionUpdater : MonoBehaviour
     public TextMeshProUGUI detailedDescriptionText;
     public TextMeshProUGUI specsText;
 
+    [Header("Default Texts")]
+    [TextArea(2, 3)]
+    public string defaultGeneralText = "Select a component category to learn what it does.";
+    [TextArea(2, 3)]
+    public string defaultDetailedText = "Select a component to view details.";
+    public string defaultSpecsText = "";
+
     [Header("Category Descriptions")]
     public List<CategoryDescription> categoryDescriptions;
 
@@ -25,6 +32,9 @@ public class DescriptionUpdater : MonoBehaviour
 
     void Start()
     {
+        // Set default texts on start
+        SetDefaultTexts();
+
         ComponentManager componentManager = FindFirstObjectByType<ComponentManager>();
         if (componentManager != null)
         {
@@ -33,6 +43,24 @@ public class DescriptionUpdater : MonoBehaviour
         else
         {
             Debug.LogError("ComponentManager not found in the scene!");
+        }
+    }
+
+    void SetDefaultTexts()
+    {
+        if (generalDescriptionText != null)
+        {
+            generalDescriptionText.text = defaultGeneralText;
+        }
+
+        if (detailedDescriptionText != null)
+        {
+            detailedDescriptionText.text = defaultDetailedText;
+        }
+
+        if (specsText != null)
+        {
+            specsText.text = defaultSpecsText;
         }
     }
 
@@ -52,7 +80,7 @@ public class DescriptionUpdater : MonoBehaviour
         }
         else if (generalDescriptionText != null)
         {
-            generalDescriptionText.text = "Select a component to learn what it does.";
+            generalDescriptionText.text = defaultGeneralText;
         }
     }
 
@@ -96,8 +124,8 @@ public class DescriptionUpdater : MonoBehaviour
     public void ClearDetails()
     {
         if (detailedDescriptionText != null)
-            detailedDescriptionText.text = "Select a component to view details.";
+            detailedDescriptionText.text = defaultDetailedText;
         if (specsText != null)
-            specsText.text = "";
+            specsText.text = defaultSpecsText;
     }
 }

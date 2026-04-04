@@ -30,7 +30,7 @@ public class WorldSpawner : MonoBehaviour
             Debug.Log("Previous model destroyed");
         }
 
-        currentSpawnedModel = Instantiate(modelPrefab, SpawnPosition, Quaternion.Euler(spawnRotation));
+        currentSpawnedModel = Instantiate(modelPrefab, SpawnPosition, modelPrefab.transform.rotation);
         
         // Apply scale based on setting
         if (useCustomScale)

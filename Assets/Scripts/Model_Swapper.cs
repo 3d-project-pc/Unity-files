@@ -47,7 +47,7 @@ public class ModelSwapper : MonoBehaviour
         {
             currentModel = Instantiate(newModelPrefab, modelHolder);
             currentModel.transform.localPosition = modelPosition;
-            currentModel.transform.localRotation = Quaternion.Euler(modelRotation);
+            //currentModel.transform.localRotation = Quaternion.Euler(modelRotation);
             currentModel.transform.localScale = Vector3.Scale(currentModel.transform.localScale, modelScale);
             currentModel.AddComponent<SimpleRotator>();
             currentModel.AddComponent<ModelRotation>();

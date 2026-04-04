@@ -1,0 +1,10 @@
+{
+  "optionName": "Kingston KC3000 1TB NVMe SSD",
+  "modelPrefab": "NVME_SSD",
+  "detailedDescription": "The Kingston KC3000 1TB NVMe SSD delivers blazing-fast performance with PCIe 4.0 interface. With read speeds up to 5000MB/s and write speeds up to 4200MB/s, this M.2 2280 drive is perfect for gaming, content creation, and professional workloads. Features advanced heat dissipation and intelligent thermal throttling protection.",
+  "frequency": "5000/4200 MB/s",
+  "wattage": "6.5W (Active) / 0.03W (Idle)",
+  "additionalSpecs": "1TB Capacity | PCIe 4.0 | M.2 2280 | Up to 5000MB/s Read | Up to 4200MB/s Write | 1.5M Hours MTBF | AES 256-bit Encryption | Dynamic Thermal Guard",
+  "price": 135.99,
+  "modelPrefabForScaling": "NVME_SSD"
+}

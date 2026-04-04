@@ -5,5 +5,6 @@
   "frequency": "1500 MHz base / 1725 MHz boost",
   "wattage": "220W TDP",
   "additionalSpecs": "GPU: GA104 | Architecture: Ampere\nCUDA Cores: 5888 | RT Cores: 46 | Tensor Cores: 184\nVRAM: 8GB GDDR6 (256-bit bus)\nMemory Bandwidth: 448 GB/s\nDisplay Outputs: 3x DisplayPort 1.4a, 1x HDMI 2.1\nPCIe: x16 (PCIe 4.0)\nRecommended PSU: 650W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
-  "price": 122.97
+  "price": 122.97,
+  "modelPrefabForScaling": "geforce-rtx-3070-founders-edition"
 }

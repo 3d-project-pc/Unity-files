@@ -47,7 +47,8 @@ public class ShopBuyButton : MonoBehaviour
 
             if (worldSpawner != null)
             {
-                worldSpawner.SpawnModel(selectedComponent.modelPrefab);
+                // UPDATED: Use spawnPrefab instead of modelPrefab
+                worldSpawner.SpawnModel(selectedComponent.spawnPrefab);
             }
             else
             {

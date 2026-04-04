@@ -11,7 +11,8 @@ public class OptionsListPopulator : MonoBehaviour
     {
         public string optionName;
         public ComponentManager.ComponentCategory category;
-        public GameObject modelPrefab;
+        public GameObject spawnPrefab;           // For spawning on table
+        public GameObject presentationPrefab;     // For UI viewer
         public string detailedDescription;
         public string frequency;
         public string wattage;
@@ -28,7 +29,7 @@ public class OptionsListPopulator : MonoBehaviour
     public GameObject optionButtonPrefab;
 
     [Header("Selected Component Display")]
-    public TextMeshProUGUI selectedPriceText;  // NEW: TMP to show price of selected component
+    public TextMeshProUGUI selectedPriceText;
 
     [Header("References to Other Scripts")]
     public ModelSwapper modelSwapper;
@@ -56,7 +57,6 @@ public class OptionsListPopulator : MonoBehaviour
             Debug.LogError("ComponentManager not found in the scene!");
         }
 
-        // Clear selected price display at start
         UpdateSelectedPriceDisplay();
     }
 
@@ -94,21 +94,47 @@ public class OptionsListPopulator : MonoBehaviour
             return;
         }
 
-        string prefabName = jsonData.modelPrefab;
-        string prefabPath = Path.Combine(prefabsFolderPath, categoryName, prefabName);
-        string relativePath = prefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
-        GameObject prefab = Resources.Load<GameObject>(relativePath);
+        string categoryFolder = Path.Combine(prefabsFolderPath, categoryName);
+        
+        // Load spawn prefab from SpawnPrefabs folder
+        string spawnPrefabPath = Path.Combine(categoryFolder, "SpawnPrefabs", jsonData.modelPrefab);
+        string spawnRelativePath = spawnPrefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
+        GameObject spawnPrefab = Resources.Load<GameObject>(spawnRelativePath);
 
-        if (prefab == null)
+        if (spawnPrefab == null)
         {
-            Debug.LogWarning($"Model prefab not found: {prefabName} in {categoryName}");
+            Debug.LogError($"Spawn prefab not found: {jsonData.modelPrefab} in {categoryFolder}/SpawnPrefabs/");
             return;
+        }
+
+        // Load presentation prefab from PresentationPrefabs folder
+        GameObject presentationPrefab = null;
+        
+        // Check if modelPrefabForScaling exists in JSON
+        if (!string.IsNullOrEmpty(jsonData.modelPrefabForScaling))
+        {
+            string presentationPrefabPath = Path.Combine(categoryFolder, "PresentationPrefabs", jsonData.modelPrefabForScaling);
+            string presentationRelativePath = presentationPrefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
+            presentationPrefab = Resources.Load<GameObject>(presentationRelativePath);
+
+            if (presentationPrefab == null)
+            {
+                Debug.LogError($"Presentation prefab not found: {jsonData.modelPrefabForScaling} in {categoryFolder}/PresentationPrefabs/");
+                return;
+            }
+        }
+        else
+        {
+            // Fallback: use spawn prefab for presentation if no presentation prefab specified
+            Debug.LogWarning($"No modelPrefabForScaling specified in {jsonPath}. Using spawn prefab for presentation.");
+            presentationPrefab = spawnPrefab;
         }
 
         ComponentOption option = new ComponentOption();
         option.optionName = jsonData.optionName;
         option.category = (ComponentManager.ComponentCategory)System.Enum.Parse(typeof(ComponentManager.ComponentCategory), categoryName);
-        option.modelPrefab = prefab;
+        option.spawnPrefab = spawnPrefab;
+        option.presentationPrefab = presentationPrefab;
         option.detailedDescription = jsonData.detailedDescription;
         option.frequency = jsonData.frequency;
         option.wattage = jsonData.wattage;
@@ -116,14 +142,15 @@ public class OptionsListPopulator : MonoBehaviour
         option.price = jsonData.price;
 
         allComponents.Add(option);
-        Debug.Log($"Loaded component: {option.optionName} (Price: {option.price}) from {jsonPath}");
+        Debug.Log($"Loaded component: {option.optionName} (Spawn: {spawnPrefab.name}, Presentation: {presentationPrefab.name})");
     }
 
     [System.Serializable]
     class ComponentJsonData
     {
         public string optionName;
-        public string modelPrefab;
+        public string modelPrefab;              // For spawning
+        public string modelPrefabForScaling;    // For UI viewer (optional)
         public string detailedDescription;
         public string frequency;
         public string wattage;
@@ -154,7 +181,7 @@ public class OptionsListPopulator : MonoBehaviour
 
             if (buttonText != null)
             {
-                buttonText.text = $"{option.optionName}";
+                buttonText.text = $"{option.optionName} - ${option.price}";
             }
 
             ComponentOption capturedOption = option;
@@ -170,12 +197,12 @@ public class OptionsListPopulator : MonoBehaviour
         
         currentSelectedComponent = selectedOption;
         
-        // Update the selected price display
         UpdateSelectedPriceDisplay();
 
+        // Use presentation prefab for the UI viewer
         if (modelSwapper != null)
         {
-            modelSwapper.SwapModel(selectedOption.modelPrefab);
+            modelSwapper.SwapModel(selectedOption.presentationPrefab);
         }
 
         if (descriptionUpdater != null)
@@ -184,14 +211,13 @@ public class OptionsListPopulator : MonoBehaviour
         }
     }
 
-    // NEW: Updates the TMP text showing the price of the selected component
     private void UpdateSelectedPriceDisplay()
     {
         if (selectedPriceText != null)
         {
             if (currentSelectedComponent != null)
             {
-                selectedPriceText.text = $"${currentSelectedComponent.price}";
+                selectedPriceText.text = $"Price: ${currentSelectedComponent.price}";
             }
             else
             {

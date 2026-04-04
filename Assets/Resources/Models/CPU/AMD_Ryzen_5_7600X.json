@@ -5,5 +5,6 @@
   "frequency": "4.7 GHz base / 5.3 GHz boost",
   "wattage": "105W TDP (142W PPT)",
   "additionalSpecs": "Cores: 6 | Threads: 12\nL2 Cache: 6MB | L3 Cache: 32MB\nSocket: AM5 (LGA1718) | Architecture: Zen 4\nProcess Node: TSMC 5nm (CCD) + 6nm (IOD)\nMemory: DDR5-5200 dual-channel\nPCIe: 28 lanes (PCIe 5.0 x16 + PCIe 5.0 x4 NVMe)\nIntegrated Graphics: AMD Radeon RDNA 2 (2 CUs)\nMax Temp: 95°C | Unlocked Multiplier: Yes",
-  "price": 321.12
+  "price": 321.12,
+  "modelPrefabForScaling": "RyzenCPUStar"
 }
