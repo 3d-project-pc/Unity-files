@@ -11,13 +11,29 @@ public class OptionsListPopulator : MonoBehaviour
     {
         public string optionName;
         public ComponentManager.ComponentCategory category;
-        public GameObject spawnPrefab;           // For spawning on table
-        public GameObject presentationPrefab;     // For UI viewer
+        public GameObject spawnPrefab;
+        public GameObject presentationPrefab;
         public string detailedDescription;
         public string frequency;
         public string wattage;
         public string additionalSpecs;
         public int price;
+        
+        // Benchmark & Compatibility Fields
+        public int powerDraw;
+        public string socket;
+        public string ramType;
+        public int thermalOutput;
+        public float coolerPerformance;
+        public int fpsContribution;
+        public int renderContribution;
+        public int bootTimeReduction;
+        public int bootTimeSec;
+        public int singleCoreScore;
+        public int multiCoreScore;
+        public int maxWattage;
+        public float efficiency;
+        public int noiseLevelDb;
     }
 
     [Header("Folder Settings")]
@@ -110,7 +126,6 @@ public class OptionsListPopulator : MonoBehaviour
         // Load presentation prefab from PresentationPrefabs folder
         GameObject presentationPrefab = null;
         
-        // Check if modelPrefabForScaling exists in JSON
         if (!string.IsNullOrEmpty(jsonData.modelPrefabForScaling))
         {
             string presentationPrefabPath = Path.Combine(categoryFolder, "PresentationPrefabs", jsonData.modelPrefabForScaling);
@@ -125,7 +140,6 @@ public class OptionsListPopulator : MonoBehaviour
         }
         else
         {
-            // Fallback: use spawn prefab for presentation if no presentation prefab specified
             Debug.LogWarning($"No modelPrefabForScaling specified in {jsonPath}. Using spawn prefab for presentation.");
             presentationPrefab = spawnPrefab;
         }
@@ -140,22 +154,54 @@ public class OptionsListPopulator : MonoBehaviour
         option.wattage = jsonData.wattage;
         option.additionalSpecs = jsonData.additionalSpecs;
         option.price = jsonData.price;
+        
+        // Populate benchmark & compatibility fields
+        option.powerDraw = jsonData.powerDraw;
+        option.socket = jsonData.socket ?? "";
+        option.ramType = jsonData.ramType ?? "";
+        option.thermalOutput = jsonData.thermalOutput;
+        option.coolerPerformance = jsonData.coolerPerformance;
+        option.fpsContribution = jsonData.fpsContribution;
+        option.renderContribution = jsonData.renderContribution;
+        option.bootTimeReduction = jsonData.bootTimeReduction;
+        option.bootTimeSec = jsonData.bootTimeSec;
+        option.singleCoreScore = jsonData.singleCoreScore;
+        option.multiCoreScore = jsonData.multiCoreScore;
+        option.maxWattage = jsonData.maxWattage;
+        option.efficiency = jsonData.efficiency;
+        option.noiseLevelDb = jsonData.noiseLevelDb;
 
         allComponents.Add(option);
-        Debug.Log($"Loaded component: {option.optionName} (Spawn: {spawnPrefab.name}, Presentation: {presentationPrefab.name})");
+        Debug.Log($"Loaded component: {option.optionName} (Price: {option.price})");
     }
 
     [System.Serializable]
     class ComponentJsonData
     {
         public string optionName;
-        public string modelPrefab;              // For spawning
-        public string modelPrefabForScaling;    // For UI viewer (optional)
+        public string modelPrefab;
+        public string modelPrefabForScaling;
         public string detailedDescription;
         public string frequency;
         public string wattage;
         public string additionalSpecs;
         public int price;
+        
+        // Benchmark & Compatibility Fields
+        public int powerDraw;
+        public string socket;
+        public string ramType;
+        public int thermalOutput;
+        public float coolerPerformance;
+        public int fpsContribution;
+        public int renderContribution;
+        public int bootTimeReduction;
+        public int bootTimeSec;
+        public int singleCoreScore;
+        public int multiCoreScore;
+        public int maxWattage;
+        public float efficiency;
+        public int noiseLevelDb;
     }
 
     void OnCategoryChanged(ComponentManager.ComponentCategory newCategory)
@@ -199,7 +245,6 @@ public class OptionsListPopulator : MonoBehaviour
         
         UpdateSelectedPriceDisplay();
 
-        // Use presentation prefab for the UI viewer
         if (modelSwapper != null)
         {
             modelSwapper.SwapModel(selectedOption.presentationPrefab);
