@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
@@ -18,6 +18,22 @@ public class OptionsListPopulator : MonoBehaviour
         public string wattage;
         public string additionalSpecs;
         public int price;
+        
+        // Benchmark & Compatibility Fields
+        public int powerDraw;
+        public string socket;
+        public string ramType;
+        public int thermalOutput;
+        public float coolerPerformance;
+        public int fpsContribution;
+        public int renderContribution;
+        public int bootTimeReduction;
+        public int bootTimeSec;
+        public int singleCoreScore;
+        public int multiCoreScore;
+        public int maxWattage;
+        public float efficiency;
+        public int noiseLevelDb;
     }
 
     [Header("Folder Settings")]
@@ -31,11 +47,6 @@ public class OptionsListPopulator : MonoBehaviour
     [Header("Selected Component Display")]
     public TextMeshProUGUI selectedPriceText;
 
-    // ── NEW: Search bar reference ──────────────────────────────────────────
-    [Header("Search")]
-    public TMP_InputField searchInputField;
-    // ──────────────────────────────────────────────────────────────────────
-
     [Header("References to Other Scripts")]
     public ModelSwapper modelSwapper;
     public DescriptionUpdater descriptionUpdater;
@@ -44,10 +55,6 @@ public class OptionsListPopulator : MonoBehaviour
 
     private List<ComponentOption> allComponents = new List<ComponentOption>();
     private ComponentManager.ComponentCategory currentCategory;
-
-    // ── NEW: Holds the current search string ──────────────────────────────
-    private string currentSearchText = "";
-    // ──────────────────────────────────────────────────────────────────────
 
     void Start()
     {
@@ -66,27 +73,8 @@ public class OptionsListPopulator : MonoBehaviour
             Debug.LogError("ComponentManager not found in the scene!");
         }
 
-        // ── NEW: Listen to search input changes ───────────────────────────
-        if (searchInputField != null)
-        {
-            searchInputField.onValueChanged.AddListener(OnSearchTextChanged);
-        }
-        else
-        {
-            Debug.LogWarning("Search Input Field is not assigned in OptionsListPopulator!");
-        }
-        // ─────────────────────────────────────────────────────────────────
-
         UpdateSelectedPriceDisplay();
     }
-
-    // ── NEW: Called every time the user types in the search bar ───────────
-    void OnSearchTextChanged(string newText)
-    {
-        currentSearchText = newText;
-        PopulateOptions();
-    }
-    // ─────────────────────────────────────────────────────────────────────
 
     void ScanForComponents()
     {
@@ -97,7 +85,7 @@ public class OptionsListPopulator : MonoBehaviour
         foreach (string categoryName in categoryNames)
         {
             string categoryFolder = Path.Combine(prefabsFolderPath, categoryName);
-
+            
             if (Directory.Exists(categoryFolder))
             {
                 string[] jsonFiles = Directory.GetFiles(categoryFolder, "*.json", SearchOption.TopDirectoryOnly);
@@ -113,8 +101,9 @@ public class OptionsListPopulator : MonoBehaviour
     void LoadComponentFromJson(string jsonPath, string categoryName)
     {
         string jsonContent = File.ReadAllText(jsonPath);
+        
         ComponentJsonData jsonData = JsonUtility.FromJson<ComponentJsonData>(jsonContent);
-
+        
         if (jsonData == null)
         {
             Debug.LogWarning($"Failed to parse JSON: {jsonPath}");
@@ -122,7 +111,8 @@ public class OptionsListPopulator : MonoBehaviour
         }
 
         string categoryFolder = Path.Combine(prefabsFolderPath, categoryName);
-
+        
+        // Load spawn prefab from SpawnPrefabs folder
         string spawnPrefabPath = Path.Combine(categoryFolder, "SpawnPrefabs", jsonData.modelPrefab);
         string spawnRelativePath = spawnPrefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
         GameObject spawnPrefab = Resources.Load<GameObject>(spawnRelativePath);
@@ -133,8 +123,9 @@ public class OptionsListPopulator : MonoBehaviour
             return;
         }
 
+        // Load presentation prefab from PresentationPrefabs folder
         GameObject presentationPrefab = null;
-
+        
         if (!string.IsNullOrEmpty(jsonData.modelPrefabForScaling))
         {
             string presentationPrefabPath = Path.Combine(categoryFolder, "PresentationPrefabs", jsonData.modelPrefabForScaling);
@@ -163,8 +154,25 @@ public class OptionsListPopulator : MonoBehaviour
         option.wattage = jsonData.wattage;
         option.additionalSpecs = jsonData.additionalSpecs;
         option.price = jsonData.price;
+        
+        // Populate benchmark & compatibility fields
+        option.powerDraw = jsonData.powerDraw;
+        option.socket = jsonData.socket ?? "";
+        option.ramType = jsonData.ramType ?? "";
+        option.thermalOutput = jsonData.thermalOutput;
+        option.coolerPerformance = jsonData.coolerPerformance;
+        option.fpsContribution = jsonData.fpsContribution;
+        option.renderContribution = jsonData.renderContribution;
+        option.bootTimeReduction = jsonData.bootTimeReduction;
+        option.bootTimeSec = jsonData.bootTimeSec;
+        option.singleCoreScore = jsonData.singleCoreScore;
+        option.multiCoreScore = jsonData.multiCoreScore;
+        option.maxWattage = jsonData.maxWattage;
+        option.efficiency = jsonData.efficiency;
+        option.noiseLevelDb = jsonData.noiseLevelDb;
 
         allComponents.Add(option);
+        Debug.Log($"Loaded component: {option.optionName} (Price: {option.price})");
     }
 
     [System.Serializable]
@@ -178,20 +186,27 @@ public class OptionsListPopulator : MonoBehaviour
         public string wattage;
         public string additionalSpecs;
         public int price;
+        
+        // Benchmark & Compatibility Fields
+        public int powerDraw;
+        public string socket;
+        public string ramType;
+        public int thermalOutput;
+        public float coolerPerformance;
+        public int fpsContribution;
+        public int renderContribution;
+        public int bootTimeReduction;
+        public int bootTimeSec;
+        public int singleCoreScore;
+        public int multiCoreScore;
+        public int maxWattage;
+        public float efficiency;
+        public int noiseLevelDb;
     }
 
     void OnCategoryChanged(ComponentManager.ComponentCategory newCategory)
     {
         currentCategory = newCategory;
-
-        // ── NEW: Clear search when switching category for clean UX ─────────
-        if (searchInputField != null)
-        {
-            searchInputField.SetTextWithoutNotify("");
-            currentSearchText = "";
-        }
-        // ─────────────────────────────────────────────────────────────────
-
         PopulateOptions();
     }
 
@@ -202,18 +217,7 @@ public class OptionsListPopulator : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // ── MODIFIED: Filter by category AND search text ──────────────────
-        List<ComponentOption> filteredOptions = allComponents.FindAll(option =>
-        {
-            bool matchesCategory = option.category == currentCategory;
-
-            bool matchesSearch = string.IsNullOrEmpty(currentSearchText) ||
-                                 option.optionName.IndexOf(currentSearchText,
-                                 System.StringComparison.OrdinalIgnoreCase) >= 0;
-
-            return matchesCategory && matchesSearch;
-        });
-        // ─────────────────────────────────────────────────────────────────
+        List<ComponentOption> filteredOptions = allComponents.FindAll(option => option.category == currentCategory);
 
         foreach (ComponentOption option in filteredOptions)
         {
@@ -230,35 +234,49 @@ public class OptionsListPopulator : MonoBehaviour
             button.onClick.AddListener(() => OnOptionSelected(capturedOption));
         }
 
-        Debug.Log($"Populated {filteredOptions.Count} options for category: {currentCategory}" +
-                  (string.IsNullOrEmpty(currentSearchText) ? "" : $" | Search: \"{currentSearchText}\""));
+        Debug.Log($"Populated {filteredOptions.Count} options for category: {currentCategory}");
     }
 
     void OnOptionSelected(ComponentOption selectedOption)
     {
+        Debug.Log($"Selected: {selectedOption.optionName} (Price: ${selectedOption.price})");
+        
         currentSelectedComponent = selectedOption;
+        
         UpdateSelectedPriceDisplay();
 
         if (modelSwapper != null)
+        {
             modelSwapper.SwapModel(selectedOption.presentationPrefab);
+        }
 
         if (descriptionUpdater != null)
+        {
             descriptionUpdater.UpdateDetails(selectedOption);
+        }
     }
 
     private void UpdateSelectedPriceDisplay()
     {
         if (selectedPriceText != null)
         {
-            selectedPriceText.text = currentSelectedComponent != null
-                ? $"Price: ${currentSelectedComponent.price}"
-                : "Price: --";
+            if (currentSelectedComponent != null)
+            {
+                selectedPriceText.text = $"Price: ${currentSelectedComponent.price}";
+            }
+            else
+            {
+                selectedPriceText.text = "Price: --";
+            }
         }
     }
 
     public void RefreshComponents()
     {
         ScanForComponents();
-        OnCategoryChanged(currentCategory);
+        if (descriptionUpdater != null)
+        {
+            OnCategoryChanged(currentCategory);
+        }
     }
 }
