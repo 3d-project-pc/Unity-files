@@ -1,0 +1,10 @@
+{
+  "optionName": "ASUS Prime X570-Pro",
+  "modelPrefab": "X570Asus",
+  "detailedDescription": "The ASUS Prime X570-Pro motherboard features the AMD X570 chipset with AM4 socket support. This ATX form factor board supports up to 128GB of DDR4 RAM across 4 slots. Equipped with PCIe 4.0 expansion slots, 2 M.2 slots, and 8 SATA ports for extensive storage options. Connectivity includes USB 3.2 Gen 2 ports and is ideal for enthusiasts and gamers seeking high-performance features.",
+  "frequency": "2400 MHz (Base) / 4800 MHz (OC)",
+  "wattage": "40-55W",
+  "additionalSpecs": "AM4 | AMD X570 Chipset | ATX | 4x DDR4 Slots (Max 128GB) | 2x M.2 Slots | 8x SATA Ports | USB 3.2 Gen 2",
+  "price": 261,
+  "modelPrefabForScaling": "X570Asus"
+}

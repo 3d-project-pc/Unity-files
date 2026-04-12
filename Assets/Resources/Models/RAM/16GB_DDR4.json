@@ -5,5 +5,6 @@
   "frequency": "2133 - 3600+ MHz",
   "wattage": "1.2V",
   "additionalSpecs": "Capacity: 16GB\nGeneration: DDR4\nBandwidth: Up to 25.6 GB/s per channel (DDR4-3200)\nVoltage: 1.2V (1.35V for XMP/OC)\nSlots: 2 x 8GB (dual-channel)\nXMP / EXPO Support: Yes\nCompatible Sockets: LGA1200, LGA1700, AM4",
-  "price": 328.31
+  "price": 328.31,
+  "modelPrefabForScaling": "DDR4"
 }

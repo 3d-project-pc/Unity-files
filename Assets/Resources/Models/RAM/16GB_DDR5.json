@@ -5,5 +5,6 @@
   "frequency": "4800 - 6400+ MHz",
   "wattage": "1.1V",
   "additionalSpecs": "Capacity: 16GB\nGeneration: DDR5\nBandwidth: Up to 51.2 GB/s per channel (DDR5-6400)\nVoltage: 1.1V (1.35V+ for XMP/EXPO OC)\nSlots: 2 x 8GB (dual-channel)\nOn-Die ECC: Yes\nXMP 3.0 / EXPO Support: Yes\nCompatible Sockets: LGA1700, AM5",
-  "price": 290.48
+  "price": 290.48,
+  "modelPrefabForScaling": "DDR5"
 }

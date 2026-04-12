@@ -5,5 +5,6 @@
   "frequency": "1365 MHz base / 1680 MHz boost",
   "wattage": "160W TDP",
   "additionalSpecs": "GPU: TU106 | Architecture: Turing\nCUDA Cores: 1920 | RT Cores: 30 | Tensor Cores: 240\nVRAM: 6GB GDDR6 (192-bit bus)\nMemory Bandwidth: 336 GB/s\nDisplay Outputs: 3x DisplayPort 1.4, 1x HDMI 2.0, 1x USB-C (VirtualLink)\nPCIe: x16 (PCIe 3.0)\nRecommended PSU: 550W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
-  "price": 448.96
+  "price": 448.96,
+  "modelPrefabForScaling": "geforce-rtx-2060-founders-edition"
 }

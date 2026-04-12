@@ -5,5 +5,6 @@
   "frequency": "1395 MHz base / 1695 MHz boost",
   "wattage": "350W TDP",
   "additionalSpecs": "GPU: GA102 | Architecture: Ampere\nCUDA Cores: 10496 | RT Cores: 82 | Tensor Cores: 328\nVRAM: 24GB GDDR6X (384-bit bus)\nMemory Bandwidth: 936 GB/s\nDisplay Outputs: 3x DisplayPort 1.4a, 1x HDMI 2.1\nPCIe: x16 (PCIe 4.0)\nRecommended PSU: 750W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
-  "price": 414.6
+  "price": 414.6,
+  "modelPrefabForScaling": "geforce-rtx-3090-founders-edition"
 }

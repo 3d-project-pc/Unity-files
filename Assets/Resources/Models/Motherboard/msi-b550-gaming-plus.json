@@ -1,0 +1,10 @@
+{
+  "optionName": "MSI B550 Gaming Plus",
+  "modelPrefab": "msi-b550-gaming-plus",
+  "detailedDescription": "The MSI B550 Gaming Plus motherboard features the AMD B550 chipset with AM4 socket support. This ATX form factor board supports up to 128GB of DDR4 RAM across 4 slots. Equipped with PCIe 4.0 expansion slots, 2 M.2 slots, and 6 SATA ports for extensive storage options. Connectivity includes USB 3.2 Gen 2 ports and is ideal for mainstream users looking for balanced performance and value.",
+  "frequency": "2133 MHz (Base) / 4400 MHz (OC)",
+  "wattage": "30-45W",
+  "additionalSpecs": "AM4 | AMD B550 Chipset | ATX | 4x DDR4 Slots (Max 128GB) | 2x M.2 Slots | 6x SATA Ports | USB 3.2 Gen 2",
+  "price": 214,
+  "modelPrefabForScaling": "msi-b550-gaming-plus"
+}

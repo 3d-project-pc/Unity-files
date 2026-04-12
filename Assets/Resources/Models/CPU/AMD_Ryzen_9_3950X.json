@@ -5,5 +5,6 @@
   "frequency": "3.5 / 4.7 GHz",
   "wattage": "105W",
   "additionalSpecs": "Socket AM4 | 16 Cores, 32 Threads | 64MB L3 Cache",
-  "price": 209.97
+  "price": 209.97,
+  "modelPrefabForScaling": "RyzenCPU"
 }

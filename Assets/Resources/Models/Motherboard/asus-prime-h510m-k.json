@@ -1,0 +1,10 @@
+{
+  "optionName": "ASUS Prime H510M-K",
+  "modelPrefab": "pc-motherboard-asus-prime-h510m-k",
+  "detailedDescription": "The ASUS Prime H510M-K motherboard features the Intel H510 chipset with LGA 1200 socket support. This Micro-ATX form factor board supports up to 64GB of DDR4 RAM across 2 slots. Equipped with PCIe 4.0 expansion slots, 1 M.2 slots, and 4 SATA ports for extensive storage options. Connectivity includes USB 3.2 Gen 1 ports and is ideal for budget-conscious builders requiring essential features.",
+  "frequency": "2133 MHz (Base) / 3200 MHz (OC)",
+  "wattage": "20-35W",
+  "additionalSpecs": "LGA 1200 | Intel H510 Chipset | Micro-ATX | 2x DDR4 Slots (Max 64GB) | 1x M.2 Slots | 4x SATA Ports | USB 3.2 Gen 1",
+  "price": 148,
+  "modelPrefabForScaling": "pc-motherboard-asus-prime-h510m-k"
+}

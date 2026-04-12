@@ -5,5 +5,6 @@
   "frequency": "4.2 / 5.7 GHz",
   "wattage": "120W",
   "additionalSpecs": "Socket AM5 | 16 Cores, 32 Threads | 128MB L3 Cache",
-  "price": 251.07
+  "price": 251.07,
+  "modelPrefabForScaling": "RyzenCPU"
 }

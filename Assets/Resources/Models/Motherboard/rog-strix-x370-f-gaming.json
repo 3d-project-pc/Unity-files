@@ -1,0 +1,10 @@
+{
+  "optionName": "ROG Strix X370-F Gaming",
+  "modelPrefab": "rog_strix_x370_f",
+  "detailedDescription": "The ROG Strix X370-F Gaming motherboard features the AMD X370 chipset with AM4 socket support. This ATX form factor board supports up to 64GB of DDR4 RAM across 4 slots. Equipped with PCIe 3.0 expansion slots, 2 M.2 slots, and 8 SATA ports for extensive storage options. Connectivity includes USB 3.1 Gen 2 ports and is ideal for enthusiasts and gamers seeking high-performance features.",
+  "frequency": "2400 MHz (Base) / 4800 MHz (OC)",
+  "wattage": "40-55W",
+  "additionalSpecs": "AM4 | AMD X370 Chipset | ATX | 4x DDR4 Slots (Max 64GB) | 2x M.2 Slots | 8x SATA Ports | USB 3.1 Gen 2",
+  "price": 250,
+  "modelPrefabForScaling": "rog_strix_x370_f"
+}
