@@ -80,6 +80,19 @@ public class PlayerAvatarMovement : MonoBehaviour
         HandleMovement();
         HandleAnimation();
         HandleGravity();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+            if (Physics.Raycast(ray, out RaycastHit hit, 12f))
+            {
+                // Try to find the Door script on the object we hit or its parent
+                Door door = hit.collider.GetComponentInParent<Door>();
+                if (door != null)
+                {
+                    door.ToggleDoor();
+                }
+            }
+        }
     }
     
     private void HandleInput()
