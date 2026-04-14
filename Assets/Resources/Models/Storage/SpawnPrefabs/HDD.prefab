@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60218534de4d7e54a8deaef927068b7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.03
+      value: 6.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60218534de4d7e54a8deaef927068b7d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60218534de4d7e54a8deaef927068b7d, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2035418204985619170}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60218534de4d7e54a8deaef927068b7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3771437137730468098}
   m_SourcePrefab: {fileID: 100100000, guid: 60218534de4d7e54a8deaef927068b7d, type: 3}
 --- !u!1 &5514371565340625036 stripped
 GameObject:
@@ -99,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df753224a2f86b2449eeedd27fe23b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableComponent
+  isSnapped: 0
   rotationAmount: 90
 --- !u!65 &-8824241927064933916
 BoxCollider:
@@ -119,8 +123,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 0.5, z: 5}
+  m_Center: {x: 0.00000065005065, y: 0.5, z: 0.0000012000936}
 --- !u!54 &-2035418204985619170
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,3 +152,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3771437137730468098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5514371565340625036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
+  componentType: 6
+  isInstalled: 0
+  guideMessage: Make sure the SATA ports are facing toward the cable management side
+  rotationOffset: {x: 0, y: 0, z: 0}

@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class SnapSocket : MonoBehaviour
 {
     public string requiredSocket;
     public ComponentType acceptableType;
     public static bool isMotherboardPlaced = false;
-
+    public UnityEvent onSnap;
     private GameObject dockedObject;
 
     [Header("UI Feedback")]
@@ -14,11 +15,20 @@ public class SnapSocket : MonoBehaviour
     public GameObject placementHintUI;
     public float displayTime = 2.5f;
 
+    private void Start()
+    {
+        if (placementHintUI == null)
+        {
+            placementHintUI = GameObject.Find("PlaceSign");
+            if (placementHintUI != null) placementHintUI.SetActive(false);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (dockedObject != null) return;
 
         ComponentTag tag = other.GetComponent<ComponentTag>();
+        PartIdentity identity = other.GetComponent<PartIdentity>();
         if (tag == null) return;
 
         bool isCompatible = string.IsNullOrEmpty(requiredSocket) || tag.socket == requiredSocket;
@@ -35,7 +45,7 @@ public class SnapSocket : MonoBehaviour
 
             if (!Input.GetMouseButton(0))
             {
-                SnapObject(other.gameObject, tag);
+                SnapObject(other.gameObject, tag, identity);
             }
         }
     }
@@ -45,12 +55,16 @@ public class SnapSocket : MonoBehaviour
         if (placementHintUI != null) placementHintUI.SetActive(false);
     }
 
-    void SnapObject(GameObject obj, ComponentTag tag)
+    void SnapObject(GameObject obj, ComponentTag tag, PartIdentity identity)
     {
+        if (dockedObject != null) return;
+
         dockedObject = obj;
         if (placementHintUI != null) placementHintUI.SetActive(false);
+        
+        Quaternion targetRotation = obj.transform.rotation;
 
-        // 1. Tell Draggable to stop returning to table
+        // stop returning to table
         DraggableComponent dragger = obj.GetComponent<DraggableComponent>();
         if (dragger != null)
         {
@@ -58,26 +72,42 @@ public class SnapSocket : MonoBehaviour
             dragger.enabled = false;
         }
 
-        // 2. Parent it
-        obj.transform.SetParent(transform);
-
-        // 3. FORCE ALIGNMENT
-        // This makes the object match the Socket's position and rotation EXACTLY
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.identity;
-
-        // 4. Stop Physics movement
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        obj.transform.SetParent(transform);
+        obj.transform.localPosition = Vector3.zero;
+
+        StartCoroutine(ForceRotationRoutine(obj.transform, targetRotation));
+
+        if (identity != null)
+        {
+            identity.isInstalled = true;
+            obj.transform.localRotation = Quaternion.Euler(identity.rotationOffset);
+            identity.ReportSnap();
+        }
+        else
+        {
+            obj.transform.localRotation = Quaternion.identity;
         }
 
         tag.isInstalled = true;
         if (tag.componentType == ComponentType.Motherboard) isMotherboardPlaced = true;
     }
 
+    IEnumerator ForceRotationRoutine(Transform target, Quaternion rot)
+    {
+        yield return new WaitForEndOfFrame();
+        target.rotation = rot;
+
+        yield return null;
+        target.rotation = rot;
+    }
     void ShowWarning()
     {
         if (warningText != null)

@@ -26,6 +26,12 @@ public class DraggableComponent : MonoBehaviour
 
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mOffset = gameObject.transform.position - GetMouseWorldPos();
+        PartIdentity identity = GetComponent<PartIdentity>();
+        if (identity != null && !identity.isInstalled)
+        {
+            // Use the Instance we set up in InstallationGuide
+            InstallationGuide.Instance.ShowSuccessMessage(identity.guideMessage);
+        }
     }
 
     private Vector3 GetMouseWorldPos()

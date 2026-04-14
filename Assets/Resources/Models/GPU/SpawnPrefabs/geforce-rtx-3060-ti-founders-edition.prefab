@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8776015052918439250}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1440169388708178676}
   m_SourcePrefab: {fileID: 100100000, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
 --- !u!1 &4822354910992770915 stripped
 GameObject:
@@ -99,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df753224a2f86b2449eeedd27fe23b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableComponent
+  isSnapped: 0
   rotationAmount: 90
 --- !u!65 &6163431898867024182
 BoxCollider:
@@ -148,3 +152,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1440169388708178676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822354910992770915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
+  componentType: 2
+  isInstalled: 0
+  guideMessage: 'Align it with the top PCIe slot!
+
+    Make sure the back bracket
+    clears the case frame'
+  rotationOffset: {x: 0, y: 0, z: 0}

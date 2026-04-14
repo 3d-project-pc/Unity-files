@@ -13,7 +13,9 @@ public class ComponentManager : MonoBehaviour
         GPU,
         Motherboard,
         Storage,
-        PSU
+        PSU,
+        Cooler,
+        Peripherals
     }
 
     [System.Serializable]

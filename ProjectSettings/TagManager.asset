@@ -10,6 +10,8 @@ TagManager:
   - StorageSocket
   - MotherboardSocket
   - Door
+  - PSUSocket
+  - FanSocket
   layers:
   - Default
   - TransparentFX

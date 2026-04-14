@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6877087f9c24a874493376b0c515331e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4862116429514272637}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6877087f9c24a874493376b0c515331e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9054529352271887439}
   m_SourcePrefab: {fileID: 100100000, guid: 6877087f9c24a874493376b0c515331e, type: 3}
 --- !u!1 &3716101083000478053 stripped
 GameObject:
@@ -99,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df753224a2f86b2449eeedd27fe23b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableComponent
+  isSnapped: 0
   rotationAmount: 90
 --- !u!65 &-2409701013786972623
 BoxCollider:
@@ -148,3 +152,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-9054529352271887439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716101083000478053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
+  componentType: 1
+  isInstalled: 0
+  guideMessage: 'Line up the notch in the stick with the break in the slot!
+
+    Press
+    until both sides click'
+  rotationOffset: {x: 0, y: 0, z: 0}
