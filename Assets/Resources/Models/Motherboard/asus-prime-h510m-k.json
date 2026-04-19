@@ -6,5 +6,8 @@
   "wattage": "20-35W",
   "additionalSpecs": "LGA 1200 | Intel H510 Chipset | Micro-ATX | 2x DDR4 Slots (Max 64GB) | 1x M.2 Slots | 4x SATA Ports | USB 3.2 Gen 1",
   "price": 148,
-  "modelPrefabForScaling": "pc-motherboard-asus-prime-h510m-k"
+  "modelPrefabForScaling": "pc-motherboard-asus-prime-h510m-k",
+  "socket": "LGA1200",
+  "powerDraw": 25,
+  "chipsetTier": "Entry"
 }

@@ -1,0 +1,8 @@
+{
+  "optionName": "NoctuaNH-D15",
+  "modelPrefab": "NoctuaCooler",
+  "price": 99.95,
+  "coolingCapacity": 35,
+  "noiseLevel": 24
+  // ✅ Already has required fields - no changes needed
+}
