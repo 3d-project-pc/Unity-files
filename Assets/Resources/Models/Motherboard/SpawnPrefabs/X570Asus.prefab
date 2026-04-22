@@ -420,7 +420,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -808,7 +807,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1110,11 +1108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1126,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -180
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1143,6 +1141,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 46b122e881a61304bb795390864b66fc, type: 3}
       propertyPath: m_Name
       value: X570Asus
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46b122e881a61304bb795390864b66fc, type: 3}
+      propertyPath: m_TagString
+      value: MotherboardSocket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1269,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 4
+  componentType: 7
   isInstalled: 0
   guideMessage: Ensure the I/O ports face the back of the case
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 0, y: -90, z: 0}

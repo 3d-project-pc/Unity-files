@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 0
+  componentType: 6
   isInstalled: 0
   guideMessage: "Check the arrows on the side of the fan frame! \nThey show the direction
     of rotation and the path of the airflow."

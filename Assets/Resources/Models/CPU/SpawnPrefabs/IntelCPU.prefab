@@ -168,4 +168,4 @@ MonoBehaviour:
   isInstalled: 0
   guideMessage: "Handle with care! \nBe extremely careful not to touch or bend the
     pins on the bottom"
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 90, y: -90, z: 0}

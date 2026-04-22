@@ -23,8 +23,11 @@ public class SnapSocket : MonoBehaviour
             if (placementHintUI != null) placementHintUI.SetActive(false);
         }
     }
+
     private void OnTriggerStay(Collider other)
     {
+        //Debug.Log($"Trigger stay with: {other.name}"); // ADD THIS
+
         if (dockedObject != null) return;
 
         ComponentTag tag = other.GetComponent<ComponentTag>();
@@ -35,6 +38,8 @@ public class SnapSocket : MonoBehaviour
 
         if (tag.componentType == acceptableType && isCompatible)
         {
+            Debug.Log($"Compatible component detected: {tag.componentType}"); // ADD THIS
+
             if (tag.componentType != ComponentType.Motherboard && !isMotherboardPlaced)
             {
                 if (!Input.GetMouseButton(0)) ShowWarning();
@@ -45,6 +50,7 @@ public class SnapSocket : MonoBehaviour
 
             if (!Input.GetMouseButton(0))
             {
+                Debug.Log("About to call SnapObject"); // ADD THIS
                 SnapObject(other.gameObject, tag, identity);
             }
         }
@@ -57,14 +63,17 @@ public class SnapSocket : MonoBehaviour
 
     void SnapObject(GameObject obj, ComponentTag tag, PartIdentity identity)
     {
+        //Debug.Log($"=== SNAP OBJECT CALLED for: {obj.name} ===");
+        Debug.Log($"=== SNAPPING TO SOCKET: {gameObject.name} ===");
+        Debug.Log($"Socket position: {transform.position}");
+        Debug.Log($"Socket parent: {transform.parent?.name}");
+
         if (dockedObject != null) return;
 
         dockedObject = obj;
         if (placementHintUI != null) placementHintUI.SetActive(false);
-        
-        Quaternion targetRotation = obj.transform.rotation;
 
-        // stop returning to table
+        // Stop the component from returning to table
         DraggableComponent dragger = obj.GetComponent<DraggableComponent>();
         if (dragger != null)
         {
@@ -83,31 +92,35 @@ public class SnapSocket : MonoBehaviour
         obj.transform.SetParent(transform);
         obj.transform.localPosition = Vector3.zero;
 
-        StartCoroutine(ForceRotationRoutine(obj.transform, targetRotation));
+        // DEBUG: Check values before applying rotation
+        Debug.Log($"Socket transform rotation: {transform.rotation.eulerAngles}");
+        Debug.Log($"Socket local rotation: {transform.localRotation.eulerAngles}");
 
         if (identity != null)
         {
+            Debug.Log($"PartIdentity exists! rotationOffset = {identity.rotationOffset}");
+            Debug.Log($"Applying localRotation = Quaternion.Euler({identity.rotationOffset})");
+
+            obj.transform.rotation = Quaternion.Euler(identity.rotationOffset);
+
+            Debug.Log($"Result localRotation: {obj.transform.localRotation.eulerAngles}");
+            Debug.Log($"Result world rotation: {obj.transform.rotation.eulerAngles}");
+
             identity.isInstalled = true;
-            obj.transform.localRotation = Quaternion.Euler(identity.rotationOffset);
             identity.ReportSnap();
         }
         else
         {
+            Debug.LogWarning("No PartIdentity component found on this object!");
             obj.transform.localRotation = Quaternion.identity;
         }
 
         tag.isInstalled = true;
         if (tag.componentType == ComponentType.Motherboard) isMotherboardPlaced = true;
+
+        onSnap?.Invoke();
     }
 
-    IEnumerator ForceRotationRoutine(Transform target, Quaternion rot)
-    {
-        yield return new WaitForEndOfFrame();
-        target.rotation = rot;
-
-        yield return null;
-        target.rotation = rot;
-    }
     void ShowWarning()
     {
         if (warningText != null)

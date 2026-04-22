@@ -93,5 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 0
+  componentType: 7
+  isInstalled: 0
   guideMessage: Make sure the portals are facing the back of the case
+  rotationOffset: {x: 0, y: 0, z: 0}
