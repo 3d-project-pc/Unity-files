@@ -84,6 +84,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18528e221da62974ba42e5358175b03e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1436014014409718423}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18528e221da62974ba42e5358175b03e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1816642480096862197}
   m_SourcePrefab: {fileID: 100100000, guid: 18528e221da62974ba42e5358175b03e, type: 3}
 --- !u!1 &3974907615284016693 stripped
 GameObject:
@@ -168,4 +171,16 @@ MonoBehaviour:
   isInstalled: 0
   guideMessage: "Handle with care! \nBe extremely careful not to touch or bend the
     pins on the bottom"
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 90, y: -90, z: 0}
+--- !u!114 &-1816642480096862197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3974907615284016693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0983120878f8e43be1ff3ab4d6bd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerDebugger

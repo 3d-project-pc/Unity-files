@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4423100072fa1584fa15626813d63d7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4423100072fa1584fa15626813d63d7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4423100072fa1584fa15626813d63d7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4423100072fa1584fa15626813d63d7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 1
+  componentType: 2
   isInstalled: 0
   guideMessage: 'Line up the notch in the stick with the break in the slot!
 
     Press
     until both sides click'
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 90}

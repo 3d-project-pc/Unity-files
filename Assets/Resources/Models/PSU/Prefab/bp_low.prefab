@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 5
+  componentType: 4
   isInstalled: 0
   guideMessage: Position the fan facing the ventilation holes for the best airflow
   rotationOffset: {x: 0, y: 0, z: 0}
