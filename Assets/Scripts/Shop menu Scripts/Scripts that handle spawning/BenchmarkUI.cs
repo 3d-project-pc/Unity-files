@@ -125,9 +125,10 @@ public class BenchmarkUI : MonoBehaviour
             {
                 warningText.gameObject.SetActive(true);
                 warningText.text = FormatWarnings(result.warningMessage);
-                warningText.color = new Color(1f, 0.7f, 0.2f); // Orange color
+                warningText.color = new Color(1f, 0.7f, 0.2f);
                 warningText.fontSize = 20;
-                warningText.enableWordWrapping = true;
+                // Just remove this line if it causes errors
+                // warningText.enableWordWrapping = true;
             }
             else
             {
@@ -135,35 +136,35 @@ public class BenchmarkUI : MonoBehaviour
                 warningText.text = "✓ All systems nominal";
                 warningText.color = Color.green;
                 warningText.fontSize = 20;
+                // Just remove this line if it causes errors
+                // warningText.enableWordWrapping = true;
             }
         }
+        
         // Color code based on values
-if (fpsText != null)
-{
-    fpsText.text = $"FPS: {Mathf.RoundToInt(result.fps)}";
-    if (result.fps >= 120)
-        fpsText.color = Color.green;
-    else if (result.fps >= 60)
-        fpsText.color = Color.yellow;
-    else
-        fpsText.color = Color.red;
-}
+        if (fpsText != null)
+        {
+            if (result.fps >= 120)
+                fpsText.color = Color.green;
+            else if (result.fps >= 60)
+                fpsText.color = Color.yellow;
+            else
+                fpsText.color = Color.red;
+        }
 
-if (temperatureText != null)
-{
-    temperatureText.text = $"Temperature: {Mathf.RoundToInt(result.peakTemperature)}°C";
-    if (result.peakTemperature <= 60)
-        temperatureText.color = Color.green;
-    else if (result.peakTemperature <= 75)
-        temperatureText.color = Color.yellow;
-    else
-        temperatureText.color = Color.red;
-}
+        if (temperatureText != null)
+        {
+            if (result.peakTemperature <= 60)
+                temperatureText.color = Color.green;
+            else if (result.peakTemperature <= 75)
+                temperatureText.color = Color.yellow;
+            else
+                temperatureText.color = Color.red;
+        }
     }
     
     private string FormatWarnings(string warnings)
     {
-        // Replace bullet points and clean up formatting
         string formatted = warnings.Replace("⚠", "•");
         return formatted;
     }
