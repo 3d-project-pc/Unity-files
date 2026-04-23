@@ -5,6 +5,10 @@
   "frequency": "1605 MHz base / 1770 MHz boost",
   "wattage": "215W TDP",
   "additionalSpecs": "GPU: TU104 | Architecture: Turing\nCUDA Cores: 2560 | RT Cores: 40 | Tensor Cores: 320\nVRAM: 8GB GDDR6 (256-bit bus)\nMemory Bandwidth: 448 GB/s\nDisplay Outputs: 3x DisplayPort 1.4, 1x HDMI 2.0, 1x USB-C (VirtualLink)\nPCIe: x16 (PCIe 3.0)\nRecommended PSU: 650W\nAPI Support: DirectX 12 Ultimate, Vulkan, OpenGL 4.6",
-  "price": 383.9,
-  "modelPrefabForScaling": "geforce-rtx-2070-super-founders-edition"
+  "price": 383.90,
+  "modelPrefabForScaling": "geforce-rtx-2070-super-founders-edition",
+  "fpsContribution": 100,
+  "powerDraw": 215,
+  "baseTemp": 74,
+  "vramGB": 8
 }

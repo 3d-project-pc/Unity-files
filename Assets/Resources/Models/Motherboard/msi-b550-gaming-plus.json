@@ -6,5 +6,8 @@
   "wattage": "30-45W",
   "additionalSpecs": "AM4 | AMD B550 Chipset | ATX | 4x DDR4 Slots (Max 128GB) | 2x M.2 Slots | 6x SATA Ports | USB 3.2 Gen 2",
   "price": 214,
-  "modelPrefabForScaling": "msi-b550-gaming-plus"
+  "modelPrefabForScaling": "msi-b550-gaming-plus",
+  "socket": "AM4",
+  "powerDraw": 35,
+  "chipsetTier": "Mainstream"
 }

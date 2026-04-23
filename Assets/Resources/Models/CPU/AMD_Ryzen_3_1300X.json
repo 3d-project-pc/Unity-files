@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 3 1300X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 3 1300X features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.5 / 3.7 GHz",
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
-  "price": 112.3,
-  "modelPrefabForScaling": "RyzenCPU"
+  "price": 112.30,
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 1950,
+  "multiCoreScore": 6500,
+  "powerDraw": 65,
+  "baseTemp": 54,
+  "socket": "AM4"
 }

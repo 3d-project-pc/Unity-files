@@ -6,5 +6,8 @@
   "wattage": "40-55W",
   "additionalSpecs": "LGA 1151 | Intel Z370 Chipset | ATX | 4x DDR4 Slots (Max 64GB) | 2x M.2 Slots | 6x SATA Ports | USB 3.1 Gen 2",
   "price": 271,
-  "modelPrefabForScaling": "rog-strix-z370-e-gaming-motherboard-3d-model"
+  "modelPrefabForScaling": "rog-strix-z370-e-gaming-motherboard-3d-model",
+  "socket": "LGA1151",
+  "powerDraw": 45,
+  "chipsetTier": "Enthusiast"
 }

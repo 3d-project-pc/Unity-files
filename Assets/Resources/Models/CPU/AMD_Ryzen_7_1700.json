@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 7 1700",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 7 1700 features high-speed processing with 8 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.0 / 3.7 GHz",
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 8 Cores, 16 Threads | 32MB L3 Cache",
   "price": 188.61,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2300,
+  "multiCoreScore": 14500,
+  "powerDraw": 65,
+  "baseTemp": 56,
+  "socket": "AM4"
 }

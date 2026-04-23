@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 5 1500X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 5 1500X features high-speed processing with 6 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.5 / 3.7 GHz",
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
   "price": 219.25,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2250,
+  "multiCoreScore": 10200,
+  "powerDraw": 65,
+  "baseTemp": 55,
+  "socket": "AM4"
 }

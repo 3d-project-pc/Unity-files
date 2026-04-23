@@ -6,5 +6,9 @@
   "wattage": "1.2V",
   "additionalSpecs": "Capacity: 64GB\nGeneration: DDR4\nBandwidth: Up to 25.6 GB/s per channel (DDR4-3200)\nVoltage: 1.2V (1.35V for XMP/OC)\nSlots: 4 x 16GB or 2 x 32GB\nXMP / EXPO Support: Yes\nCompatible Sockets: LGA1700, AM4, LGA2066 (HEDT)",
   "price": 238.88,
-  "modelPrefabForScaling": "DDR4"
+  "modelPrefabForScaling": "DDR4",
+  "fpsContribution": 25,
+  "powerDraw": 18,
+  "capacityGB": 64,
+  "generation": "DDR4"
 }

@@ -3,8 +3,13 @@
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 5 2600X features high-speed processing with 6 cores for heavy multitasking.",
   "frequency": "3.6 / 4.2 GHz",
-  "wattage": "65W",
+  "wattage": "95W",
   "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
   "price": 216.66,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2550,
+  "multiCoreScore": 12800,
+  "powerDraw": 95,
+  "baseTemp": 59,
+  "socket": "AM4"
 }

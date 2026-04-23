@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 5 3500X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 5 3500X features high-speed processing with 6 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.6 / 4.1 GHz",
   "wattage": "65W",
-  "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
+  "additionalSpecs": "Socket AM4 | 6 Cores, 6 Threads | 32MB L3 Cache",
   "price": 320.03,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2650,
+  "multiCoreScore": 13000,
+  "powerDraw": 65,
+  "baseTemp": 54,
+  "socket": "AM4"
 }
