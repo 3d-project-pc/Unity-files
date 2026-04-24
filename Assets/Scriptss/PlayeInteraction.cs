@@ -2,35 +2,81 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public float reachDistance = 5f; // Increased distance
-    public GameObject openSign;
+    public float reachDistance = 5f;
+    public GameObject openSign;   // "Press E to Open"
+    public GameObject readSign;   // "Press B to Read" (Optional)
+    public GameObject bookUI;     // Drag your Book Canvas Panel here
 
     void Update()
     {
         RaycastHit hit;
-        // This shoots the ray
+        // Shoot ray from the center of the camera
         if (Physics.Raycast(transform.position, transform.forward, out hit, reachDistance))
         {
-            // THIS LINE IS THE FIX: It looks for the tag on the mesh OR the parent
+            // --- DOOR LOGIC ---
             if (hit.collider.CompareTag("Door"))
             {
                 if (openSign != null) openSign.SetActive(true);
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    // Find the script on the parent (DoorPivot)
                     DoorController door = hit.collider.GetComponentInParent<DoorController>();
                     if (door != null) door.ToggleDoor();
                 }
             }
+            // --- BOOK LOGIC ---
+            else if (hit.collider.CompareTag("Book"))
+            {
+                if (readSign != null && !bookUI.activeSelf)
+                {
+                    readSign.SetActive(true);
+                }
+
+                if (Input.GetKeyDown(KeyCode.B))
+                {
+                    ToggleBook();
+                }
+            }
+            // If looking at nothing interactable
             else
             {
-                if (openSign != null) openSign.SetActive(false);
+                DisablePrompts();
             }
         }
         else
         {
-            if (openSign != null) openSign.SetActive(false);
+            DisablePrompts();
+        }
+    }
+
+    void DisablePrompts()
+    {
+        if (openSign != null) openSign.SetActive(false);
+        if (readSign != null) readSign.SetActive(false);
+    }
+
+    void ToggleBook()
+    {
+        if (bookUI == null) return;
+
+        bool isActive = !bookUI.activeSelf;
+        bookUI.SetActive(isActive);
+
+        if (isActive && readSign != null)
+        {
+            readSign.SetActive(false);
+        }
+        // Manage Mouse and Pause
+        if (isActive)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f; // Pauses game while reading
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1f; // Resumes game
         }
     }
 }
