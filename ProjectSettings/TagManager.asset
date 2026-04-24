@@ -12,6 +12,7 @@ TagManager:
   - Door
   - PSUSocket
   - FanSocket
+  - Book
   layers:
   - Default
   - TransparentFX
