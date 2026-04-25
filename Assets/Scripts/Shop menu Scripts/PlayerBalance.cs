@@ -5,7 +5,7 @@ using System;
 public class PlayerBalance : MonoBehaviour
 {
     [Header("Balance Settings")]
-    public int startingBalance = 1000;
+    public int startingBalance = 1500;
     public int currentBalance;
 
     [Header("UI Reference (Optional)")]
