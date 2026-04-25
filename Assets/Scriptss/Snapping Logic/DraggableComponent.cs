@@ -7,30 +7,30 @@ public class DraggableComponent : MonoBehaviour
     private Vector3 startPosition;
 
     [HideInInspector]
-    public bool isSnapped = false; // Controlled by the SnapSocket script
+    public bool isSnapped = false;
 
     [Header("Rotation Settings")]
     public float rotationAmount = 90f;
-    private ComponentTag myData;
+    private PartIdentityV2 myData;
 
     void Start()
     {
-        myData = GetComponent<ComponentTag>();
+        myData = GetComponent<PartIdentityV2>();
     }
 
     void OnMouseDown()
     {
-        // Save where we picked it up from (the table)
-        startPosition = transform.position;
-        isSnapped = false;
-
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mOffset = gameObject.transform.position - GetMouseWorldPos();
-        PartIdentity identity = GetComponent<PartIdentity>();
-        if (identity != null && !identity.isInstalled)
+        if (myData != null && !myData.isInstalled && !isSnapped)
         {
-            // Use the Instance we set up in InstallationGuide
-            InstallationGuide.Instance.ShowSuccessMessage(identity.guideMessage);
+            startPosition = transform.position;
+            mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            mOffset = gameObject.transform.position - GetMouseWorldPos();
+            
+            // Show the guide message when picked up
+            if (!string.IsNullOrEmpty(myData.guideMessage))
+            {
+                InstallationGuide.Instance.ShowSuccessMessage(myData.guideMessage);
+            }
         }
     }
 
@@ -43,12 +43,10 @@ public class DraggableComponent : MonoBehaviour
 
     void OnMouseDrag()
     {
-        // Only move if not already installed
-        if (myData != null && !myData.isInstalled)
+        if (myData != null && !myData.isInstalled && !isSnapped)
         {
             transform.position = GetMouseWorldPos() + mOffset;
 
-            // Manual rotation while dragging
             if (Input.GetKeyDown(KeyCode.R)) RotateObject(Vector3.up);
             if (Input.GetKeyDown(KeyCode.T)) RotateObject(Vector3.right);
         }
@@ -56,14 +54,19 @@ public class DraggableComponent : MonoBehaviour
 
     void OnMouseUp()
     {
-        // Give the SnapSocket a tiny moment to process parenting
+        // Clear the message when released (whether snapped or not)
+        if (myData != null)
+        {
+            InstallationGuide.Instance.ClearMessage();
+        }
+        
+        // Give socket time to process snap
         Invoke("CheckIfSnapped", 0.05f);
     }
 
     void CheckIfSnapped()
     {
-        // If the socket didn't grab us, teleport back to the table
-        if (!isSnapped && transform.parent == null)
+        if (!isSnapped && transform.parent == null && myData != null && !myData.isInstalled)
         {
             transform.position = startPosition;
             Debug.Log("Missed the socket! Returning to table.");

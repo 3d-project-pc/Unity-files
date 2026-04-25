@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4923500027262295133}
   - component: {fileID: 5419462281931748441}
-  - component: {fileID: 498541271543181969}
+  - component: {fileID: 253630003317202553}
   m_Layer: 0
   m_Name: CPU_Socket
   m_TagString: CPUSocket
@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42048002387105980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.109, y: 1.062, z: 0.078}
   m_LocalScale: {x: 1.8181816, y: 1.8181821, z: 1.8181819}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5419462281931748441
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -54,7 +54,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &498541271543181969
+--- !u!114 &253630003317202553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,17 +63,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 42048002387105980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: 
-  acceptableType: 0
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 4274347611958739864}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 0
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 0}
+  highlightObject: {fileID: 4274347611958739864}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &1393033920644029264
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827627527699552077}
   - component: {fileID: 8549668602861037697}
-  - component: {fileID: 2681826471539933859}
+  - component: {fileID: 1997124350691779055}
   m_Layer: 0
   m_Name: GPU_Socket
   m_TagString: GPUSocket
@@ -716,13 +714,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720535714394840045}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04, y: -0.78, z: 0.95}
   m_LocalScale: {x: 1.8181816, y: 1.8181816, z: 1.8181819}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8549668602861037697
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -744,7 +742,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2681826471539933859
+--- !u!114 &1997124350691779055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -753,17 +751,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4720535714394840045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: 
-  acceptableType: 1
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 4812807133205637867}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 1
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 0}
+  highlightObject: {fileID: 4812807133205637867}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &4812807133205637867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177015578538497422}
   - component: {fileID: 5263639359556378859}
-  - component: {fileID: 612646866574448815}
+  - component: {fileID: 3202919222185587825}
   m_Layer: 0
   m_Name: 'RAM1_Socket '
   m_TagString: RAMSocket
@@ -1039,13 +1035,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5455786707021263693}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1706, y: 1.07, z: 0.23}
   m_LocalScale: {x: 1.8181819, y: 1.8181819, z: 1.8181814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5263639359556378859
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1067,7 +1063,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &612646866574448815
+--- !u!114 &3202919222185587825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,17 +1072,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5455786707021263693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: ChannelB
-  acceptableType: 2
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 7896210110765467422}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 2
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 3495188272121672593}
+  highlightObject: {fileID: 7896210110765467422}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &6320038410170645963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3238331659499372368}
   - component: {fileID: 2279167826695960819}
-  - component: {fileID: 4541629556924568139}
+  - component: {fileID: 2475850401516950292}
   m_Layer: 0
   m_Name: RAM3_Socket
   m_TagString: RAMSocket
@@ -1225,13 +1219,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6448160140954787226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.5416, y: 1.05, z: 0.169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5416, y: 1.103, z: 0.169}
   m_LocalScale: {x: 1.8181819, y: 1.8181819, z: 1.8181814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2279167826695960819
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1249,11 +1243,11 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4541629556924568139
+--- !u!114 &2475850401516950292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1262,17 +1256,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6448160140954787226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: ChannelB
-  acceptableType: 2
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 2897233652196754133}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 2
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 2949407582653774054}
+  highlightObject: {fileID: 2897233652196754133}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &7511304406984268964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545440213905759182}
   - component: {fileID: 2197150384428778796}
-  - component: {fileID: 3783874456279319088}
+  - component: {fileID: 3495188272121672593}
   m_Layer: 0
   m_Name: 'RAM2_Socket '
   m_TagString: RAMSocket
@@ -1561,13 +1553,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7992034162238707124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.37, y: 1.045, z: 0.186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.37, y: 1.098, z: 0.186}
   m_LocalScale: {x: 1.8181819, y: 1.8181819, z: 1.8181814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2197150384428778796
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1585,11 +1577,11 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3783874456279319088
+--- !u!114 &3495188272121672593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1598,17 +1590,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7992034162238707124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: ChannelA
-  acceptableType: 2
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 7861218970572433422}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 2
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 2475850401516950292}
+  highlightObject: {fileID: 7861218970572433422}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &8000802916499542894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5529735542340315131}
   - component: {fileID: 2618543744725655150}
-  - component: {fileID: 2712648142213434476}
+  - component: {fileID: 2949407582653774054}
   m_Layer: 0
   m_Name: RAM4_Socket
   m_TagString: RAMSocket
@@ -1635,13 +1625,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8000802916499542894}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.7244, y: 1.035, z: 0.1674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7244, y: 1.088, z: 0.167}
   m_LocalScale: {x: 1.8181819, y: 1.8181819, z: 1.8181814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6786778971921947658}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2618543744725655150
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1659,11 +1649,11 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2712648142213434476
+--- !u!114 &2949407582653774054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1672,17 +1662,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8000802916499542894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965478b8fb33d6048a89c8552c07fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnapSocket
-  requiredSocket: ChannelA
-  acceptableType: 2
-  onSnap:
-    m_PersistentCalls:
-      m_Calls: []
-  warningText: {fileID: 4665638252059344190}
-  placementHintUI: {fileID: 6320038410170645963}
-  displayTime: 2.5
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 2
+  requireMotherboardFirst: 1
+  nextRamSocket: {fileID: 0}
+  highlightObject: {fileID: 6320038410170645963}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &8048837123241199270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,7 +1736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please place the motherboard first
+  m_text: Installed Successfully
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1fb038ef388ece44b301c045e0eec90, type: 2}
   m_sharedMaterial: {fileID: -890690498307692277, guid: d1fb038ef388ece44b301c045e0eec90, type: 2}
@@ -2006,7 +1994,7 @@ PrefabInstance:
       addedObject: {fileID: 7232939844370966608}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -90405118233857800}
+      addedObject: {fileID: 6009561444796658746}
   m_SourcePrefab: {fileID: 100100000, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}
 --- !u!1 &6153231182483932848 stripped
 GameObject:
@@ -2075,7 +2063,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-90405118233857800
+--- !u!114 &6009561444796658746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2084,13 +2072,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6153231182483932848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5f5ce92fa80fc4b864befb98c24449, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 7
-  isInstalled: 0
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentityV2
+  componentType: 4
   guideMessage: Ensure the I/O ports face the back of the case
+  positionOffset: {x: 0, y: 0, z: 0}
   rotationOffset: {x: 0, y: -90, z: 0}
+  isInstalled: 0
 --- !u!4 &6786778971921947658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}

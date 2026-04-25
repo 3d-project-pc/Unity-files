@@ -83,7 +83,7 @@ PrefabInstance:
       addedObject: {fileID: -5730392794717643440}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ef4afab2332799c478bbf3a25c1930b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 750039457943315671}
+      addedObject: {fileID: -1969915399897743838}
   m_SourcePrefab: {fileID: 100100000, guid: ef4afab2332799c478bbf3a25c1930b3, type: 3}
 --- !u!1 &6485741412236760671 stripped
 GameObject:
@@ -152,7 +152,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &750039457943315671
+--- !u!114 &-1969915399897743838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,11 +161,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6485741412236760671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8073a533f717a10428701c7c346d06da, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5f5ce92fa80fc4b864befb98c24449, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PartIdentity
-  componentType: 6
-  isInstalled: 0
-  guideMessage: Slide it into the M.2 slot at a 30-degree angle before screwing it
-    down
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentityV2
+  componentType: 7
+  guideMessage: Place it under the motherboard
+  positionOffset: {x: 0, y: 0, z: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
+  isInstalled: 0

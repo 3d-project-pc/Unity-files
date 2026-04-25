@@ -23,12 +23,14 @@ public class InstallationGuide : MonoBehaviour
 
     void OnEnable()
     {
-        PartIdentity.OnComponentSnapped += ShowSuccessMessage;
+        // Changed from PartIdentity to PartIdentityV2
+        PartIdentityV2.OnComponentSnapped += ShowSuccessMessage;
     }
 
     void OnDisable()
     {
-        PartIdentity.OnComponentSnapped -= ShowSuccessMessage;
+        // Changed from PartIdentity to PartIdentityV2
+        PartIdentityV2.OnComponentSnapped -= ShowSuccessMessage;
     }
 
     public void ShowSuccessMessage(string message)
@@ -49,5 +51,15 @@ public class InstallationGuide : MonoBehaviour
 
         guideText.enabled = false;
         guideText.text = "";
+    }
+
+    public void ClearMessage()
+    {
+        if (guideText != null)
+        {
+            StopAllCoroutines();
+            guideText.enabled = false;
+            guideText.text = "";
+        }
     }
 }

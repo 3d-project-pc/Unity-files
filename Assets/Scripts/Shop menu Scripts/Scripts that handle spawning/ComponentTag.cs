@@ -6,13 +6,13 @@ public enum ComponentType
     CPU,
     GPU,
     RAM,
-    Storage,
-    PSU,
     Cooler,
-    Fan,
     Motherboard,
-    Case,
-    Unknown
+    PSU,
+    Storage,           // Keep this for compatibility with old scripts
+    BrickStorage,      // New
+    NVMeStorage,       // New
+    Fan       
 }
 // ===========================
 
