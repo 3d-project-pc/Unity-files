@@ -27,6 +27,7 @@ public class BenchmarkUI : MonoBehaviour
     [Header("References")]
     public WorldSpawner worldSpawner;
     public BenchmarkCalculator calculator;
+    public RadialChartDisplay radialChartDisplay;
     
     [Header("Animation")]
     public Animator panelAnimator;
@@ -63,10 +64,49 @@ public class BenchmarkUI : MonoBehaviour
         
         var result = calculator.CalculateBenchmark(allComponents);
         UpdateUI(result);
+
+        if (radialChartDisplay == null)
+            radialChartDisplay = FindFirstObjectByType<RadialChartDisplay>();
+
+        if (radialChartDisplay != null)
+            radialChartDisplay.UpdateFromBenchmarkResult(result);
         
-        benchmarkPanel.SetActive(true);
+        if (benchmarkPanel != null)
+            benchmarkPanel.SetActive(true);
         if (panelAnimator != null)
             panelAnimator.SetTrigger(showTrigger);
+    }
+
+    public void RefreshBenchmark()
+    {
+        if (benchmarkPanel == null || !benchmarkPanel.activeSelf)
+            return;
+
+        if (worldSpawner == null)
+        {
+            worldSpawner = FindFirstObjectByType<WorldSpawner>();
+            if (worldSpawner == null)
+            {
+                Debug.LogError("WorldSpawner not found!");
+                return;
+            }
+        }
+
+        List<ComponentTag> allComponents = worldSpawner.GetAllSpawnedComponents();
+        if (allComponents.Count == 0)
+        {
+            Debug.LogWarning("No components found to benchmark on refresh!");
+            return;
+        }
+
+        var result = calculator.CalculateBenchmark(allComponents);
+        UpdateUI(result);
+
+        if (radialChartDisplay == null)
+            radialChartDisplay = FindFirstObjectByType<RadialChartDisplay>();
+
+        if (radialChartDisplay != null)
+            radialChartDisplay.UpdateFromBenchmarkResult(result);
     }
     
     public void HideBenchmark()

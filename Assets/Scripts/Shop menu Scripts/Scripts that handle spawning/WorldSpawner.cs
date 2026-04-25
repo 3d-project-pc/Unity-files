@@ -109,20 +109,18 @@ public class WorldSpawner : MonoBehaviour
                 break;
         }
         AutoUpdateBenchmark();
-        BenchmarkUI ui = FindFirstObjectByType<BenchmarkUI>();
-        if (ui != null && ui.benchmarkPanel != null && !ui.benchmarkPanel.activeSelf)
-            ui.ShowBenchmark();
     }
+
     private void AutoUpdateBenchmark()
-{
-    BenchmarkUI benchmarkUI = FindFirstObjectByType<BenchmarkUI>();
-    if (benchmarkUI != null && benchmarkUI.benchmarkPanel.activeSelf)
     {
-        // Only update if benchmark panel is currently visible
-        benchmarkUI.ShowBenchmark();
-        Debug.Log("Benchmark auto-updated after component spawn");
+        BenchmarkUI benchmarkUI = FindFirstObjectByType<BenchmarkUI>();
+        if (benchmarkUI != null && benchmarkUI.benchmarkPanel != null && benchmarkUI.benchmarkPanel.activeSelf)
+        {
+            // Only refresh when the benchmark panel is already visible
+            benchmarkUI.RefreshBenchmark();
+            Debug.Log("Benchmark auto-refreshed after component spawn");
+        }
     }
-}
     
     // Spawn single component (CPU, GPU, Cooler, Motherboard, PSU, Storage)
     private void SpawnSingleComponent(OptionsListPopulator.ComponentOption optionData, ComponentType componentType)
