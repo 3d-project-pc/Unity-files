@@ -1,21 +1,30 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ShopManager : MonoBehaviour
 {
     public GameObject shopPanel;
-    public GameObject crosshair; 
+    public GameObject crosshair;
     private bool isShopOpen = false;
 
     void Start()
     {
         shopPanel.SetActive(false);
-        crosshair.SetActive(true); // Ensure crosshair is visible at start
+        crosshair.SetActive(true);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
+            // ── FIX: ignore X key if the player is typing in any input field ──
+            if (EventSystem.current != null &&
+                EventSystem.current.currentSelectedGameObject != null &&
+                EventSystem.current.currentSelectedGameObject
+                    .GetComponent<TMPro.TMP_InputField>() != null)
+                return;
+            // ──────────────────────────────────────────────────────────────────
+
             ToggleShop();
         }
     }
@@ -24,8 +33,6 @@ public class ShopManager : MonoBehaviour
     {
         isShopOpen = !isShopOpen;
         shopPanel.SetActive(isShopOpen);
-
-        // This line toggles the crosshair to the opposite of the shop state
         crosshair.SetActive(!isShopOpen);
 
         if (isShopOpen)
@@ -38,5 +45,10 @@ public class ShopManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+    public void CloseShop()
+    {
+        if (!isShopOpen) return; // only close if open
+        ToggleShop();
     }
 }

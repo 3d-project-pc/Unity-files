@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Recovery/0 (8).unity.meta
+guid: 625490348d9f657429c12adefa564c49
+DefaultImporter:
+========
 guid: 4dee4e25123f49a458691ac699381080
 PrefabImporter:
+>>>>>>>> 19246a6754c2fd226941f6453b33ad1cdd62a506:Assets/Resources/Models/Additional peripherals/Epsonprinter.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
