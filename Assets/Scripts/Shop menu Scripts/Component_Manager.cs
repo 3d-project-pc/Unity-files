@@ -15,6 +15,7 @@ public class ComponentManager : MonoBehaviour
         Storage,
         PSU,
         Cooler,
+        Fan,
         Peripherals
     }
 

@@ -7,8 +7,8 @@ public class SnapSocketV2 : MonoBehaviour
     public ComponentType acceptedType;
     public bool requireMotherboardFirst = false;
 
-    [Header("RAM Sequential Setup")]
-    public SnapSocketV2 nextRamSocket;
+    [Header("Sequential Setup (for multiple identical sockets)")]
+    public SnapSocketV2 nextSocket;           // Generic: works for RAM, Fans, Storage, etc.
     private SphereCollider socketCollider;
 
     [Header("Visual Feedback")]
@@ -32,15 +32,16 @@ public class SnapSocketV2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Allow motherboard even if dockedObject is set? No, but we need to check if dockedObject is the motherboard
-        if (dockedObject != null && dockedObject != other.gameObject) return;
+        if (dockedObject != null) return;
 
         PartIdentityV2 part = other.GetComponent<PartIdentityV2>();
         if (part == null || part.isInstalled) return;
         if (part.componentType != acceptedType) return;
 
-        // FIX: Motherboard should NEVER show "Install motherboard first"
-        if (requireMotherboardFirst && acceptedType != ComponentType.Motherboard && !IsMotherboardPlaced())
+        // Only check motherboard prerequisite if:
+        // 1. This socket requires it (e.g., cooler socket)
+        // 2. AND the part being installed is NOT the motherboard itself
+        if (requireMotherboardFirst && acceptedType != ComponentType.Motherboard && !SnapSocketV2.IsMotherboardPlaced())
         {
             ShowTemporaryHint("Install motherboard first!");
             return;
@@ -49,21 +50,7 @@ public class SnapSocketV2 : MonoBehaviour
         pendingPart = part;
         pendingDragger = other.GetComponent<DraggableComponent>();
 
-        // ALWAYS activate highlight for any compatible part
-        if (highlightObject != null)
-        {
-            highlightObject.SetActive(true);
-        }
-        
-        // Show socket message
-        if (hintCanvas != null)
-        {
-            var text = hintCanvas.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-            if (text != null) text.text = "Place here";
-            hintCanvas.SetActive(true);
-            StopAllCoroutines();
-            StartCoroutine(HideHintAfterDelay());
-        }
+        if (highlightObject) highlightObject.SetActive(true);
     }
 
     void OnTriggerExit(Collider other)
@@ -75,7 +62,7 @@ public class SnapSocketV2 : MonoBehaviour
 
         if (part == pendingPart)
         {
-            if (highlightObject != null) highlightObject.SetActive(false);
+            if (highlightObject) highlightObject.SetActive(false);
             pendingPart = null;
             pendingDragger = null;
         }
@@ -122,10 +109,17 @@ public class SnapSocketV2 : MonoBehaviour
         if (highlightObject) highlightObject.SetActive(false);
         if (hintCanvas) hintCanvas.SetActive(false);
 
-        if (acceptedType == ComponentType.RAM && nextRamSocket != null)
+        // ✅ GENERIC SEQUENTIAL LOGIC - works for RAM, Fans, Storage, etc.
+        if (nextSocket != null)
         {
-            socketCollider.enabled = false;
-            nextRamSocket.EnableSocket();
+            // Disable this socket's collider
+            if (socketCollider != null)
+                socketCollider.enabled = false;
+            
+            // Enable the next socket in sequence
+            nextSocket.EnableSocket();
+            
+            Debug.Log($"Socket {gameObject.name} filled. Enabling next socket: {nextSocket.gameObject.name}");
         }
 
         if (acceptedType == ComponentType.Motherboard)
@@ -157,9 +151,11 @@ public class SnapSocketV2 : MonoBehaviour
     {
         if (socketCollider != null)
             socketCollider.enabled = true;
+        
+        Debug.Log($"Socket enabled: {gameObject.name}");
     }
 
     private static bool motherboardPlaced = false;
     public static bool IsMotherboardPlaced() => motherboardPlaced;
-    public static void SetMotherboardPlaced(bool value) => motherboardPlaced = value;
+    private static void SetMotherboardPlaced(bool value) => motherboardPlaced = value;
 }

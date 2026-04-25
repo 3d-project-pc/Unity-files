@@ -167,5 +167,5 @@ MonoBehaviour:
   componentType: 7
   guideMessage: Place it under the motherboard
   positionOffset: {x: 0, y: 0, z: 0}
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 90, y: 0, z: 0}
   isInstalled: 0

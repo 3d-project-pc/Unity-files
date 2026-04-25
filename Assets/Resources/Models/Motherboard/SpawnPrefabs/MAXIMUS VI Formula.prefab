@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 0
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 0}
+  nextSocket: {fileID: 4678009923935099325}
   highlightObject: {fileID: 4274347611958739864}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -174,6 +174,118 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &2181005420836562865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7561038251713705746}
+  - component: {fileID: 7752396559385542388}
+  - component: {fileID: 5905358406559633573}
+  - component: {fileID: 1534469896984019326}
+  m_Layer: 0
+  m_Name: CoolerHighLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7561038251713705746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181005420836562865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.000044082877, y: 0.006052633, z: 0.009021168}
+  m_LocalScale: {x: 0.011441645, y: 0.011441647, z: 0.01144165}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7193886493718431705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7752396559385542388
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181005420836562865}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &5905358406559633573
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181005420836562865}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b9e7ad08a2673674b8899485c2df7e7f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1534469896984019326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181005420836562865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2617004064023992724
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +586,78 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3739964167067439559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5283593352953915178}
+  - component: {fileID: 2859483374348169569}
+  - component: {fileID: 4678009923935099325}
+  m_Layer: 0
+  m_Name: Cooler_CPU_Socket
+  m_TagString: CPUSocket
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5283593352953915178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739964167067439559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.053, y: 1.06, z: 1.379}
+  m_LocalScale: {x: 1.8181816, y: 1.8181821, z: 1.8181819}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6786778971921947658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2859483374348169569
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739964167067439559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4678009923935099325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739964167067439559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549066e6e169b3840a0719b7b42292e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
+  acceptedType: 3
+  requireMotherboardFirst: 1
+  nextSocket: {fileID: 0}
+  highlightObject: {fileID: 2181005420836562865}
+  hintCanvas: {fileID: 4665638252059344190}
+  hintDisplayTime: 1.5
 --- !u!1 &4274347611958739864
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 1
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 0}
+  nextSocket: {fileID: 0}
   highlightObject: {fileID: 4812807133205637867}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -1077,7 +1261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 2
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 3495188272121672593}
+  nextSocket: {fileID: 3495188272121672593}
   highlightObject: {fileID: 7896210110765467422}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -1261,7 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 2
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 2949407582653774054}
+  nextSocket: {fileID: 2949407582653774054}
   highlightObject: {fileID: 2897233652196754133}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -1294,6 +1478,7 @@ Transform:
   m_LocalScale: {x: 158.9091, y: 158.90912, z: 158.90912}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7561038251713705746}
   - {fileID: 4856415011560770434}
   - {fileID: 8372228764711309642}
   - {fileID: 6149315814330231752}
@@ -1595,7 +1780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 2
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 2475850401516950292}
+  nextSocket: {fileID: 2475850401516950292}
   highlightObject: {fileID: 7861218970572433422}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -1667,7 +1852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnapSocketV2
   acceptedType: 2
   requireMotherboardFirst: 1
-  nextRamSocket: {fileID: 0}
+  nextSocket: {fileID: 0}
   highlightObject: {fileID: 6320038410170645963}
   hintCanvas: {fileID: 4665638252059344190}
   hintDisplayTime: 1.5
@@ -1967,6 +2152,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4923500027262295133}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5283593352953915178}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0d25414b79bb824f89351ef2ada9edd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1827627527699552077}

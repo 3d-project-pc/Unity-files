@@ -112,6 +112,8 @@ public class ShopBuyButton : MonoBehaviour
             case ComponentManager.ComponentCategory.Motherboard: return ComponentType.Motherboard;
             case ComponentManager.ComponentCategory.Storage: return ComponentType.Storage;
             case ComponentManager.ComponentCategory.PSU: return ComponentType.PSU;
+            case ComponentManager.ComponentCategory.Fan: return ComponentType.Fan;
+            case ComponentManager.ComponentCategory.Cooler: return ComponentType.Cooler;
             default: return ComponentType.CPU;
         }
     }
