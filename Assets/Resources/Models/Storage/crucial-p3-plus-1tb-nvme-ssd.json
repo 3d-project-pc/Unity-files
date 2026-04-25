@@ -6,5 +6,7 @@
   "wattage": "6.5W (Active) / 0.03W (Idle)",
   "additionalSpecs": "1TB Capacity | PCIe 4.0 | M.2 2280 | Up to 5000MB/s Read | Up to 4200MB/s Write | 1.5M Hours MTBF | AES 256-bit Encryption | Dynamic Thermal Guard",
   "price": 135.99,
-  "modelPrefabForScaling": "NVME_SSD"
+  "modelPrefabForScaling": "NVME_SSD",
+  "bootTimeReduction": 3.4,
+  "powerDraw": 6.5
 }

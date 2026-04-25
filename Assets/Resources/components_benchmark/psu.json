@@ -1,0 +1,7 @@
+{
+  "optionName": "CorsairRM750",
+  "modelPrefab": "CorsairPSU",
+  "price": 124.99,
+  "maxWattage": 750,
+  "efficiency": 85
+}

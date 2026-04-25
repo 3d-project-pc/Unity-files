@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 3 3100",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 3 3100 features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.6 / 3.9 GHz",
   "wattage": "65W",
-  "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
+  "additionalSpecs": "Socket AM4 | 4 Cores, 8 Threads | 16MB L3 Cache",
   "price": 323.19,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2200,
+  "multiCoreScore": 7800,
+  "powerDraw": 65,
+  "baseTemp": 52,
+  "socket": "AM4"
 }

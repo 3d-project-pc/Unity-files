@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 5 1600X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 5 1600X features high-speed processing with 6 cores for heavy multitasking.",
-  "frequency": "3.2 / 3.6 GHz",
-  "wattage": "65W",
+  "frequency": "3.6 / 4.0 GHz",
+  "wattage": "95W",
   "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
   "price": 312.89,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2350,
+  "multiCoreScore": 11500,
+  "powerDraw": 95,
+  "baseTemp": 58,
+  "socket": "AM4"
 }

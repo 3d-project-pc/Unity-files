@@ -6,5 +6,10 @@
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
   "price": 155.22,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 1950,
+  "multiCoreScore": 6500,
+  "powerDraw": 65,
+  "baseTemp": 52,
+  "socket": "AM4"
 }

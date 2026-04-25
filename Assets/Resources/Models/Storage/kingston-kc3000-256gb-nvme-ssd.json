@@ -6,5 +6,7 @@
   "wattage": "6.5W (Active) / 0.03W (Idle)",
   "additionalSpecs": "256GB Capacity | PCIe 4.0 | M.2 2280 | Up to 3500MB/s Read | Up to 2800MB/s Write | 1.5M Hours MTBF | AES 256-bit Encryption | Dynamic Thermal Guard",
   "price": 51.99,
-  "modelPrefabForScaling": "NVME_SSD"
+  "modelPrefabForScaling": "NVME_SSD",
+  "bootTimeReduction": 2.8,
+  "powerDraw": 6.5
 }

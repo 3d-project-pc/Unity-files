@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 5 1400",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 5 1400 features high-speed processing with 6 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.2 / 3.4 GHz",
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 6 Cores, 12 Threads | 16MB L3 Cache",
   "price": 449.27,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2100,
+  "multiCoreScore": 9500,
+  "powerDraw": 65,
+  "baseTemp": 54,
+  "socket": "AM4"
 }

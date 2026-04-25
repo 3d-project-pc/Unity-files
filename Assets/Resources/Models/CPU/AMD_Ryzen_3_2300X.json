@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 3 2300X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 3 2300X features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.5 / 4.0 GHz",
   "wattage": "65W",
   "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
   "price": 252.21,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2100,
+  "multiCoreScore": 7000,
+  "powerDraw": 65,
+  "baseTemp": 53,
+  "socket": "AM4"
 }

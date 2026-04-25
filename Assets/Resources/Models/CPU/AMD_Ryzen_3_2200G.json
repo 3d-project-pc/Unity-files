@@ -1,10 +1,15 @@
 {
   "optionName": "AMD Ryzen 3 2200G",
   "modelPrefab": "RyzenCPU",
-  "detailedDescription": "The AMD Ryzen 3 2200G features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "detailedDescription": "The AMD Ryzen 3 2200G features integrated Radeon graphics with 4 cores for everyday computing.",
+  "frequency": "3.5 / 3.7 GHz",
   "wattage": "65W",
-  "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
+  "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 4MB L3 Cache | Radeon Vega 8",
   "price": 429.08,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 1880,
+  "multiCoreScore": 6300,
+  "powerDraw": 65,
+  "baseTemp": 55,
+  "socket": "AM4"
 }

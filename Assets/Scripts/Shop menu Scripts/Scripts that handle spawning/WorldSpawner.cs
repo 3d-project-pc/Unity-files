@@ -20,13 +20,6 @@ public class WorldSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     public bool destroyPreviousOnReplace = true;
     
-    //[Header("Rotation")]
-    //public Vector3 spawnRotation = Vector3.zero;
-    
-    //[Header("Scale")]
-    //public bool useCustomScale = false;
-    //public Vector3 customScale = Vector3.one;
-    
     // Track which spawn points are currently occupied
     private Dictionary<Transform, GameObject> occupiedSpawnPoints = new Dictionary<Transform, GameObject>();
     
@@ -53,6 +46,36 @@ public class WorldSpawner : MonoBehaviour
     public GameObject SpawnedMotherboard => spawnedMotherboards.Count > 0 ? spawnedMotherboards[0] : null;
     public GameObject SpawnedPSU => spawnedPSUs.Count > 0 ? spawnedPSUs[0] : null;
     public GameObject SpawnedStorage => spawnedStorages.Count > 0 ? spawnedStorages[0] : null;
+    
+    // Public property to get all spawned components for benchmark
+    public List<ComponentTag> GetAllSpawnedComponents()
+    {
+        List<ComponentTag> allComponents = new List<ComponentTag>();
+        
+        AddComponentsToList(spawnedCPUs, allComponents);
+        AddComponentsToList(spawnedCoolers, allComponents);
+        AddComponentsToList(spawnedGPUs, allComponents);
+        AddComponentsToList(spawnedMotherboards, allComponents);
+        AddComponentsToList(spawnedPSUs, allComponents);
+        AddComponentsToList(spawnedStorages, allComponents);
+        AddComponentsToList(spawnedRAMs, allComponents);
+        AddComponentsToList(spawnedFans, allComponents);
+        
+        return allComponents;
+    }
+    
+    private void AddComponentsToList(List<GameObject> source, List<ComponentTag> target)
+    {
+        foreach (GameObject obj in source)
+        {
+            if (obj != null)
+            {
+                ComponentTag tag = obj.GetComponent<ComponentTag>();
+                if (tag != null)
+                    target.Add(tag);
+            }
+        }
+    }
     
     void Start()
     {
@@ -85,7 +108,21 @@ public class WorldSpawner : MonoBehaviour
                 SpawnSingleComponent(optionData, componentType);
                 break;
         }
+        AutoUpdateBenchmark();
+        BenchmarkUI ui = FindFirstObjectByType<BenchmarkUI>();
+        if (ui != null && ui.benchmarkPanel != null && !ui.benchmarkPanel.activeSelf)
+            ui.ShowBenchmark();
     }
+    private void AutoUpdateBenchmark()
+{
+    BenchmarkUI benchmarkUI = FindFirstObjectByType<BenchmarkUI>();
+    if (benchmarkUI != null && benchmarkUI.benchmarkPanel.activeSelf)
+    {
+        // Only update if benchmark panel is currently visible
+        benchmarkUI.ShowBenchmark();
+        Debug.Log("Benchmark auto-updated after component spawn");
+    }
+}
     
     // Spawn single component (CPU, GPU, Cooler, Motherboard, PSU, Storage)
     private void SpawnSingleComponent(OptionsListPopulator.ComponentOption optionData, ComponentType componentType)
@@ -290,6 +327,7 @@ public class WorldSpawner : MonoBehaviour
             case ComponentType.Motherboard: spawnedMotherboards.Add(component); break;
             case ComponentType.PSU: spawnedPSUs.Add(component); break;
             case ComponentType.Storage: spawnedStorages.Add(component); break;
+            // RAM and Fan are handled separately in their own methods
         }
     }
     

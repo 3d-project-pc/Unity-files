@@ -6,5 +6,8 @@
   "wattage": "40-55W",
   "additionalSpecs": "LGA 1150 | Intel Z87 Chipset | ATX | 4x DDR3 Slots (Max 32GB) | 0x M.2 Slots | 8x SATA Ports | USB 3.0",
   "price": 246,
-  "modelPrefabForScaling": "MAXIMUS VI Formula"
+  "modelPrefabForScaling": "MAXIMUS VI Formula",
+  "socket": "LGA1150",
+  "powerDraw": 50,
+  "chipsetTier": "Enthusiast"
 }

@@ -1,10 +1,15 @@
 {
   "optionName": "AMD Ryzen 3 5300G",
   "modelPrefab": "RyzenCPU",
-  "detailedDescription": "The AMD Ryzen 3 5300G features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "detailedDescription": "The AMD Ryzen 3 5300G features integrated Radeon graphics with 4 cores for modern computing.",
+  "frequency": "4.0 / 4.2 GHz",
   "wattage": "65W",
-  "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
+  "additionalSpecs": "Socket AM4 | 4 Cores, 8 Threads | 8MB L3 Cache | Radeon Graphics",
   "price": 134.88,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2600,
+  "multiCoreScore": 9000,
+  "powerDraw": 65,
+  "baseTemp": 52,
+  "socket": "AM4"
 }

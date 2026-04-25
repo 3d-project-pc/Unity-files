@@ -6,5 +6,9 @@
   "wattage": "1.2V",
   "additionalSpecs": "Capacity: 8GB\nGeneration: DDR4\nBandwidth: Up to 25.6 GB/s (DDR4-3200)\nVoltage: 1.2V (1.35V for XMP/OC)\nSlots: 1 x 8GB\nXMP / EXPO Support: Yes\nCompatible Sockets: LGA1200, LGA1700, AM4",
   "price": 254.68,
-  "modelPrefabForScaling": "DDR4"
+  "modelPrefabForScaling": "DDR4",
+  "fpsContribution": 10,
+  "powerDraw": 3,
+  "capacityGB": 8,
+  "generation": "DDR4"
 }

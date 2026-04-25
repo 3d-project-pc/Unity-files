@@ -71,5 +71,104 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8240956342675165740}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6163431898867024182}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8776015052918439250}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5716181586872273305}
   m_SourcePrefab: {fileID: 100100000, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+--- !u!1 &4822354910992770915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4eda6abed9cc45d4ea2eb45b9b62947b, type: 3}
+  m_PrefabInstance: {fileID: 5633189410386778674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8240956342675165740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822354910992770915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df753224a2f86b2449eeedd27fe23b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableComponent
+  isSnapped: 0
+  rotationAmount: 90
+--- !u!65 &6163431898867024182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822354910992770915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5587833, y: 1.283521, z: 0.42058507}
+  m_Center: {x: 0.069391064, y: -0.14858526, z: -0.011976269}
+--- !u!54 &8776015052918439250
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822354910992770915}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-5716181586872273305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822354910992770915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5f5ce92fa80fc4b864befb98c24449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PartIdentityV2
+  componentType: 1
+  guideMessage: 'Align it with the top PCIe slot!
+
+    Make sure the back bracket
+    clears the case frame'
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 90, y: 0, z: 90}
+  isInstalled: 0

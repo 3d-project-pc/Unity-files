@@ -2,9 +2,14 @@
   "optionName": "AMD Ryzen 3 3300X",
   "modelPrefab": "RyzenCPU",
   "detailedDescription": "The AMD Ryzen 3 3300X features high-speed processing with 4 cores for heavy multitasking.",
-  "frequency": "3.6 / 4.2 GHz",
+  "frequency": "3.8 / 4.3 GHz",
   "wattage": "65W",
-  "additionalSpecs": "Socket AM4 | 4 Cores, 4 Threads | 8MB L3 Cache",
+  "additionalSpecs": "Socket AM4 | 4 Cores, 8 Threads | 16MB L3 Cache",
   "price": 208.19,
-  "modelPrefabForScaling": "RyzenCPU"
+  "modelPrefabForScaling": "RyzenCPU",
+  "singleCoreScore": 2400,
+  "multiCoreScore": 8500,
+  "powerDraw": 65,
+  "baseTemp": 54,
+  "socket": "AM4"
 }
