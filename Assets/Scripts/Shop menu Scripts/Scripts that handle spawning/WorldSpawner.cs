@@ -23,7 +23,8 @@ public class WorldSpawner : MonoBehaviour
     // Track which spawn points are currently occupied
     private Dictionary<Transform, GameObject> occupiedSpawnPoints = new Dictionary<Transform, GameObject>();
 
-    // Track spawned components by type for replacement    private List<GameObject> spawnedCPUs = new List<GameObject>();
+    // Track spawned components by type for replacement  
+    private List<GameObject> spawnedCPUs = new List<GameObject>();
     private List<GameObject> spawnedCoolers = new List<GameObject>();
     private List<GameObject> spawnedGPUs = new List<GameObject>();
     private List<GameObject> spawnedMotherboards = new List<GameObject>();

@@ -1239,13 +1239,10 @@ MonoBehaviour:
   spawnPoints_RAM:
   - {fileID: 810559800}
   - {fileID: 1049235729}
-  - {fileID: 570754972}
-  - {fileID: 1876854055}
   spawnPoints_Fans:
   - {fileID: 1786429188}
   - {fileID: 909956236}
   - {fileID: 1099194580}
-  - {fileID: 1286294485}
   destroyPreviousOnReplace: 1
 --- !u!1001 &92686203
 PrefabInstance:
@@ -28025,4 +28022,3 @@ SceneRoots:
   - {fileID: 756002008}
   - {fileID: 1149638548}
   - {fileID: 92686203}
-  - {fileID: 1368048568}
