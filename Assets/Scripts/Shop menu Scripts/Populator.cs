@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using System.IO;
 
 public class OptionsListPopulator : MonoBehaviour
 {
@@ -77,72 +76,69 @@ public class OptionsListPopulator : MonoBehaviour
     }
 
     void ScanForComponents()
+{
+    allComponents.Clear();
+    string[] categoryNames = System.Enum.GetNames(typeof(ComponentManager.ComponentCategory));
+    
+    foreach (string categoryName in categoryNames)
     {
-        allComponents.Clear();
-
-        string[] categoryNames = System.Enum.GetNames(typeof(ComponentManager.ComponentCategory));
-
-        foreach (string categoryName in categoryNames)
+        // ✅ Resources.LoadAll marche dans l'éditeur ET dans le build .exe
+        string resourcesFolder = $"Models/{categoryName}";
+        TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>(resourcesFolder);
+        
+        if (jsonFiles.Length == 0)
         {
-            string categoryFolder = Path.Combine(prefabsFolderPath, categoryName);
-            
-            if (Directory.Exists(categoryFolder))
-            {
-                string[] jsonFiles = Directory.GetFiles(categoryFolder, "*.json", SearchOption.TopDirectoryOnly);
+            Debug.LogWarning($"No JSON files found in Resources/{resourcesFolder}");
+            continue;
+        }
 
-                foreach (string jsonPath in jsonFiles)
-                {
-                    LoadComponentFromJson(jsonPath, categoryName);
-                }
-            }
+        foreach (TextAsset jsonFile in jsonFiles)
+        {
+            LoadComponentFromJson(jsonFile, categoryName);
         }
     }
+}
 
-    void LoadComponentFromJson(string jsonPath, string categoryName)
+void LoadComponentFromJson(TextAsset jsonFile, string categoryName)
+{
+    // ✅ jsonFile.text remplace File.ReadAllText()
+    ComponentJsonData jsonData = JsonUtility.FromJson<ComponentJsonData>(jsonFile.text);
+    
+    if (jsonData == null)
     {
-        string jsonContent = File.ReadAllText(jsonPath);
-        
-        ComponentJsonData jsonData = JsonUtility.FromJson<ComponentJsonData>(jsonContent);
-        
-        if (jsonData == null)
-        {
-            Debug.LogWarning($"Failed to parse JSON: {jsonPath}");
-            return;
-        }
+        Debug.LogWarning($"Failed to parse JSON: {jsonFile.name}");
+        return;
+    }
 
-        string categoryFolder = Path.Combine(prefabsFolderPath, categoryName);
+    // ✅ Chemin Resources sans "Assets/Resources/" et sans extension
+    string spawnRelativePath = $"Models/{categoryName}/SpawnPrefabs/{jsonData.modelPrefab}";
+    GameObject spawnPrefab = Resources.Load<GameObject>(spawnRelativePath);
+    
+    if (spawnPrefab == null)
+    {
+        Debug.LogError($"Spawn prefab not found: {jsonData.modelPrefab} in Assets/Resources/{spawnRelativePath}/");
+        return;
+    }
+
+    GameObject presentationPrefab = null;
+    if (!string.IsNullOrEmpty(jsonData.modelPrefabForScaling))
+    {
+        string presentationRelativePath = $"Models/{categoryName}/PresentationPrefabs/{jsonData.modelPrefabForScaling}";
+        presentationPrefab = Resources.Load<GameObject>(presentationRelativePath);
         
-        // Load spawn prefab from SpawnPrefabs folder
-        string spawnPrefabPath = Path.Combine(categoryFolder, "SpawnPrefabs", jsonData.modelPrefab);
-        string spawnRelativePath = spawnPrefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
-        GameObject spawnPrefab = Resources.Load<GameObject>(spawnRelativePath);
-
-        if (spawnPrefab == null)
+        if (presentationPrefab == null)
         {
-            Debug.LogError($"Spawn prefab not found: {jsonData.modelPrefab} in {categoryFolder}/SpawnPrefabs/");
-            return;
-        }
-
-        // Load presentation prefab from PresentationPrefabs folder
-        GameObject presentationPrefab = null;
-        
-        if (!string.IsNullOrEmpty(jsonData.modelPrefabForScaling))
-        {
-            string presentationPrefabPath = Path.Combine(categoryFolder, "PresentationPrefabs", jsonData.modelPrefabForScaling);
-            string presentationRelativePath = presentationPrefabPath.Replace("Assets/Resources/", "").Replace(".prefab", "");
-            presentationPrefab = Resources.Load<GameObject>(presentationRelativePath);
-
-            if (presentationPrefab == null)
-            {
-                Debug.LogError($"Presentation prefab not found: {jsonData.modelPrefabForScaling} in {categoryFolder}/PresentationPrefabs/");
-                return;
-            }
-        }
-        else
-        {
-            Debug.LogWarning($"No modelPrefabForScaling specified in {jsonPath}. Using spawn prefab for presentation.");
+            Debug.LogWarning($"Presentation prefab not found: {jsonData.modelPrefabForScaling} — using spawn prefab instead.");
             presentationPrefab = spawnPrefab;
         }
+    }
+    else
+    {
+        Debug.LogWarning($"No modelPrefabForScaling in {jsonFile.name} — using spawn prefab for presentation.");
+        presentationPrefab = spawnPrefab;
+    }
+
+    
 
         ComponentOption option = new ComponentOption();
         option.optionName = jsonData.optionName;

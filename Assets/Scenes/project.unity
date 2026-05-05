@@ -16227,6 +16227,7 @@ GameObject:
   - component: {fileID: 1195277427}
   - component: {fileID: 1195277428}
   - component: {fileID: 1195277429}
+  - component: {fileID: 1195277430}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -16327,6 +16328,18 @@ MonoBehaviour:
   myMixer: {fileID: 24100000, guid: 318fbcd41f0b036469c3cc2ba3e6cd14, type: 2}
   musicSlider: {fileID: 2030094629}
   sfxSlider: {fileID: 1113360827}
+--- !u!114 &1195277430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195277422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1799d20520bb16645a18204eedb7cb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceLoader
 --- !u!4 &1202715002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bdcef132a9fea91499ccd48db3f1e1d4, type: 3}
